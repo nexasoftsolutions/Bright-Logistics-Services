@@ -93,9 +93,6 @@
     background-color: var(--color-background);
     color: var(--color-on-background);
   }
-  ::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 @keyframes pulse-ring {
