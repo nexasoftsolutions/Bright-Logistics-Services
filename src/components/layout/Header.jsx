@@ -19,12 +19,13 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
+  
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="fixed top-0 w-full z-50 bg-primary/95 backdrop-blur-md shadow-lg h-20">
-      <div className="max-w-[1440px] mx-auto h-full px-margin-mobile lg:px-margin-desktop flex items-center justify-between gap-gutter">
+      <div className="max-w-container mx-auto h-full px-margin-mobile lg:px-margin-desktop flex items-center justify-between gap-gutter">
         
         <Link href="/" className="flex items-center gap-4">
           <img 

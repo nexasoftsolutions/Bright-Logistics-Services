@@ -52,7 +52,7 @@ export default function Fleet() {
               <p className="font-body-md text-body-md text-on-surface-variant">
                 Our flagship heavy-haulers designed for maximum volume maritime containers and large-scale industrial cargo.
               </p>
-              <div className="mt-auto space-y-3">
+              <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
                     <Weight className="w-4 h-4" />
@@ -72,9 +72,6 @@ export default function Fleet() {
                   </div>
                 </div>
               </div>
-              <a className="mt-2 w-full flex items-center justify-center gap-2 font-label-bold text-label-bold bg-primary-container text-on-primary py-3 rounded-lg hover:bg-secondary-container transition-colors group-hover:shadow-md" href="#">
-                Request Availability <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
@@ -95,7 +92,7 @@ export default function Fleet() {
               <p className="font-body-md text-body-md text-on-surface-variant">
                 Versatile and agile rigs perfect for standard shipping containers, balancing payload capacity with maneuverability.
               </p>
-              <div className="mt-auto space-y-3">
+              <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
                     <Weight className="w-4 h-4" />
@@ -115,9 +112,6 @@ export default function Fleet() {
                   </div>
                 </div>
               </div>
-              <a className="mt-2 w-full flex items-center justify-center gap-2 font-label-bold text-label-bold bg-primary-container text-on-primary py-3 rounded-lg hover:bg-secondary-container transition-colors group-hover:shadow-md" href="#">
-                Request Availability <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
@@ -138,7 +132,7 @@ export default function Fleet() {
               <p className="font-body-md text-body-md text-on-surface-variant">
                 Efficient light-to-medium duty trucks optimal for intra-city distribution and expedited regional deliveries.
               </p>
-              <div className="mt-auto space-y-3">
+              <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
                     <Weight className="w-4 h-4" />
@@ -158,9 +152,6 @@ export default function Fleet() {
                   </div>
                 </div>
               </div>
-              <a className="mt-2 w-full flex items-center justify-center gap-2 font-label-bold text-label-bold bg-primary-container text-on-primary py-3 rounded-lg hover:bg-secondary-container transition-colors group-hover:shadow-md" href="#">
-                Request Availability <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
@@ -181,7 +172,7 @@ export default function Fleet() {
               <p className="font-body-md text-body-md text-on-surface-variant">
                 Highly maneuverable urban delivery vehicles, perfect for navigating tight city streets and providing swift last-mile solutions.
               </p>
-              <div className="mt-auto space-y-3">
+              <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
                     <Weight className="w-4 h-4" />
@@ -201,9 +192,6 @@ export default function Fleet() {
                   </div>
                 </div>
               </div>
-              <a className="mt-2 w-full flex items-center justify-center gap-2 font-label-bold text-label-bold bg-primary-container text-on-primary py-3 rounded-lg hover:bg-secondary-container transition-colors group-hover:shadow-md" href="#">
-                Request Availability <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
@@ -224,7 +212,7 @@ export default function Fleet() {
               <p className="font-body-md text-body-md text-on-surface-variant">
                 Efficient and versatile vehicles for local city-wide deliveries, suitable for narrow streets and quick turnarounds.
               </p>
-              <div className="mt-auto space-y-3">
+              <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
                     <Weight className="w-4 h-4" />
@@ -244,9 +232,6 @@ export default function Fleet() {
                   </div>
                 </div>
               </div>
-              <a className="mt-2 w-full flex items-center justify-center gap-2 font-label-bold text-label-bold bg-primary-container text-on-primary py-3 rounded-lg hover:bg-secondary-container transition-colors group-hover:shadow-md" href="#">
-                Request Availability <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
@@ -267,7 +252,7 @@ export default function Fleet() {
               <p className="font-body-md text-body-md text-on-surface-variant">
                 Custom solutions for out-of-gauge (OOG) cargo, oversized machinery, and sensitive goods requiring specific environmental controls.
               </p>
-              <div className="mt-auto space-y-3">
+              <div className="space-y-3">
                 <div className="flex flex-wrap gap-2 mb-2">
                   <span className="inline-flex items-center gap-1 font-label-bold text-label-bold text-primary-container bg-surface-container px-2 py-1 rounded-md text-[10px] uppercase">
                     <Snowflake className="w-3 h-3" /> Reefers
@@ -286,9 +271,6 @@ export default function Fleet() {
                   </div>
                 </div>
               </div>
-              <a className="mt-2 w-full flex items-center justify-center gap-2 font-label-bold text-label-bold bg-primary-container text-on-primary py-3 rounded-lg hover:bg-secondary-container transition-colors group-hover:shadow-md" href="#">
-                Consult Project Team <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </div>
         </div>

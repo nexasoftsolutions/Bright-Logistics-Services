@@ -12,7 +12,7 @@ export default function Services() {
           style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDEdYotzhXhHZFIVUjJL0pBGM2Ve7oa3Q6GCipAnZoW6iU9DzpAEG1Wi7b3xhUjwz-m_WD-uvYgAMRHBjyNQDz_kxWLCTesarFDL2JiPtCw_uM19AOwlQgmsuF9iD5DNSies3T26yi2c9uvF3VF3EByxlJMdbXLsqyvJYbmI2DPTxB6fEHy1FSvRo3XbsYyila4ThEynpMvlyb67d3zkyA2bVXxWxCqZaKqjE2IqqfXxbHJESosWUcW-Q')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-background" />
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop text-center mt-20">
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop text-center mt-10 mb-10">
           <h1 className="font-headline-xl text-headline-xl text-on-primary mb-6 animate-fade-in-up text-3xl">
             Our Comprehensive<br />
             <span className="text-secondary-fixed">Logistics Solutions</span>
@@ -41,17 +41,11 @@ export default function Services() {
               </div>
               <div className="p-6 flex flex-col flex-grow z-10 relative bg-surface-container-lowest">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
-                    <Truck className="w-5 h-5" />
-                  </div>
                   <h2 className="font-headline-sm text-headline-sm text-on-surface">Container Transportation</h2>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant flex-grow mb-6">
                   20ft and 40ft container transportation for import/export movements between ports, warehouses, and final destinations.
                 </p>
-                <button className="w-full py-3 px-4 bg-surface text-primary border border-outline-variant hover:border-primary font-label-bold text-label-bold rounded-lg transition-colors flex items-center justify-center gap-2 group/btn">
-                  Get a Quote <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
               </div>
             </article>
 
@@ -68,17 +62,11 @@ export default function Services() {
               </div>
               <div className="p-6 flex flex-col flex-grow z-10 relative bg-surface-container-lowest">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
-                    <Warehouse className="w-5 h-5" />
-                  </div>
                   <h2 className="font-headline-sm text-headline-sm text-on-surface">Port Transportation</h2>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant flex-grow mb-6">
                   Transportation from Karachi Port and Port Qasim to warehouses, factories, and customer locations.
                 </p>
-                <button className="w-full py-3 px-4 bg-surface text-primary border border-outline-variant hover:border-primary font-label-bold text-label-bold rounded-lg transition-colors flex items-center justify-center gap-2 group/btn">
-                  Get a Quote <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
               </div>
             </article>
 
@@ -95,17 +83,11 @@ export default function Services() {
               </div>
               <div className="p-6 flex flex-col flex-grow z-10 relative bg-surface-container-lowest">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
-                    <Factory className="w-5 h-5" />
-                  </div>
                   <h2 className="font-headline-sm text-headline-sm text-on-surface">Plant Transfer</h2>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant flex-grow mb-6">
                   Transportation of industrial machinery, equipment, and plant materials with specialized handling.
                 </p>
-                <button className="w-full py-3 px-4 bg-surface text-primary border border-outline-variant hover:border-primary font-label-bold text-label-bold rounded-lg transition-colors flex items-center justify-center gap-2 group/btn">
-                  Get a Quote <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
               </div>
             </article>
 
@@ -122,17 +104,11 @@ export default function Services() {
               </div>
               <div className="p-6 flex flex-col flex-grow z-10 relative bg-surface-container-lowest">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
-                    <Map className="w-5 h-5" />
-                  </div>
                   <h2 className="font-headline-sm text-headline-sm text-on-surface">Local Transportation</h2>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant flex-grow mb-6">
                   Reliable and swift transportation services within Karachi and its surrounding metropolitan areas.
                 </p>
-                <button className="w-full py-3 px-4 bg-surface text-primary border border-outline-variant hover:border-primary font-label-bold text-label-bold rounded-lg transition-colors flex items-center justify-center gap-2 group/btn">
-                  Get a Quote <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
               </div>
             </article>
 
@@ -149,17 +125,11 @@ export default function Services() {
               </div>
               <div className="p-6 flex flex-col flex-grow z-10 relative bg-surface-container-lowest">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
-                    <Store className="w-5 h-5" />
-                  </div>
                   <h2 className="font-headline-sm text-headline-sm text-on-surface">Warehouse Transportation</h2>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant flex-grow mb-6">
                   Seamless movement between ports, dedicated warehouses, distribution centers, and client locations.
                 </p>
-                <button className="w-full py-3 px-4 bg-surface text-primary border border-outline-variant hover:border-primary font-label-bold text-label-bold rounded-lg transition-colors flex items-center justify-center gap-2 group/btn">
-                  Get a Quote <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
               </div>
             </article>
 
@@ -176,17 +146,11 @@ export default function Services() {
               </div>
               <div className="p-6 flex flex-col flex-grow z-10 relative bg-surface-container-lowest">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
-                    <Link className="w-5 h-5" />
-                  </div>
                   <h2 className="font-headline-sm text-headline-sm text-on-surface">Empty Container Return</h2>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant flex-grow mb-6">
                   Efficient transportation and coordination services specifically designed for empty container returns.
                 </p>
-                <button className="w-full py-3 px-4 bg-surface text-primary border border-outline-variant hover:border-primary font-label-bold text-label-bold rounded-lg transition-colors flex items-center justify-center gap-2 group/btn">
-                  Get a Quote <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
               </div>
             </article>
 
@@ -203,19 +167,11 @@ export default function Services() {
               </div>
               <div className="p-6 flex flex-col flex-grow z-10 relative bg-surface-container-lowest">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
-                    <HardHat className="w-5 h-5" />
-                  </div>
                   <h2 className="font-headline-sm text-headline-sm text-on-surface">Project &amp; Heavy Cargo</h2>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant flex-grow mb-6">
                   Highly customized, specialized transportation solutions engineered for oversized machinery, complex industrial equipment, and sensitive project cargo requiring expert logistics management.
                 </p>
-                <div className="mt-auto flex justify-start">
-                  <button className="w-auto py-3 px-8 bg-primary text-on-primary font-label-bold text-label-bold rounded-lg transition-colors flex items-center justify-center gap-2 hover:bg-secondary group/btn">
-                    Consult an Expert <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
-                </div>
               </div>
             </article>
 
@@ -232,19 +188,11 @@ export default function Services() {
               </div>
               <div className="p-6 flex flex-col flex-grow z-10 relative bg-surface-container-lowest">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
-                    <ClipboardCheck className="w-5 h-5" />
-                  </div>
                   <h2 className="font-headline-sm text-headline-sm text-on-surface">Dedicated Transportation</h2>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant flex-grow mb-6">
                   Customized, dedicated transportation arrangements tailored specifically for your regular, ongoing business requirements. Guarantee capacity and lock in reliability with our contract logistics services.
                 </p>
-                <div className="mt-auto flex justify-start">
-                  <button className="w-auto py-3 px-8 bg-primary text-on-primary font-label-bold text-label-bold rounded-lg transition-colors flex items-center justify-center gap-2 hover:bg-secondary group/btn">
-                    Discuss Contract <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
-                </div>
               </div>
             </article>
 
