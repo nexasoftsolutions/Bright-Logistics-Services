@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ArrowRight, PlayCircle, Search, Check, Truck, MapPin, PlaneTakeoff, Ship, Warehouse } from 'lucide-react';
 
 export default function Home() {
+
   const [trackingState, setTrackingState] = useState('idle'); // 'idle', 'loading', 'result'
 
   const handleTrack = () => {
@@ -15,7 +16,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col w-full">
-      {/* Hero Section */}
       <section className="relative w-full min-h-[85vh] flex items-center justify-center -mt-20 pt-20">
         <div className="absolute inset-0 z-0">
           <div 

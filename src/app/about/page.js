@@ -14,7 +14,6 @@ export default function AboutUs() {
             <span className="text-secondary font-label-bold text-label-bold tracking-[0.2em] uppercase">[ About Bright Logistics ]</span>
             <h1 className="font-headline-xl text-headline-xl text-on-background relative">
               <span className="relative z-10">Moving Your Business Forward</span>
-              <span className="absolute -bottom-2 left-0 w-24 h-4 bg-secondary-fixed opacity-60 -z-10" />
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg mt-4 leading-relaxed">
               Bright Logistics Services is a professional logistics and transportation company based in Karachi, Pakistan. We provide reliable transportation solutions for importers, exporters, manufacturers, healthcare organizations, warehouses, distributors and corporate clients. Our services include container transportation, port-to-warehouse movements, plant transfers, local transportation, warehouse movements and customized logistics solutions. Our operations focus on safety, reliability, timely delivery and professional coordination.

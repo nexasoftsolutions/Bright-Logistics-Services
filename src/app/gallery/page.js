@@ -157,7 +157,7 @@ export default function Gallery() {
       </section>
 
       {/* Main Content Wrapper */}
-      <div className="max-w-[1440px] mx-auto w-full px-margin-mobile lg:px-margin-desktop py-16 lg:py-24 flex flex-col gap-12 relative z-20 -mt-16 bg-surface rounded-t-3xl shadow-xl">
+      <div className="max-w-[1440px] mx-auto w-full mt-5 px-margin-mobile lg:px-margin-desktop py-16 lg:py-24 flex flex-col gap-12 relative z-20 -mt-16 bg-surface rounded-t-3xl shadow-xl">
         
         {/* Filter Section */}
         <div className="flex flex-col gap-6">
@@ -166,10 +166,6 @@ export default function Gallery() {
               <span className="text-secondary-container font-label-bold uppercase tracking-widest mb-2 block">Portfolio</span>
               <h2 className="font-headline-lg text-on-surface">Operational Gallery</h2>
             </div>
-            <button className="text-body-sm text-outline hover:text-primary transition-colors flex items-center gap-2 group cursor-not-allowed" title="Future Feature">
-              <Settings className="w-5 h-5 group-hover:rotate-90 transition-transform" />
-              <span className="hidden md:inline">Manage Gallery</span>
-            </button>
           </div>
 
           {/* Filter Tabs */}

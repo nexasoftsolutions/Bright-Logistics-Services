@@ -46,7 +46,6 @@ export default function Quote() {
           
           {/* Left Column: Quote Form */}
           <div className="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-xl p-8 lg:p-12 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-secondary-container" />
             <h2 className="font-headline-md text-headline-md text-on-surface mb-8 flex items-center gap-3">
               <ClipboardList className="w-6 h-6 text-secondary-container" />
               Shipment Details
