@@ -128,7 +128,7 @@ export default function AboutUs() {
                   With decades of hands-on experience navigating the complex logistical networks of Pakistan, Ibrar Khan established Bright Logistics to address a critical gap: the need for uncompromising reliability in freight and supply chain coordination.
                 </p>
                 <p>
-                  Under his leadership, the company has grown from a regional transporter into a trusted partner for top-tier manufacturers and delicate healthcare importers. His philosophy is simple: <em>"A promise made is cargo delivered."</em>
+                  Under his leadership, the company has grown from a regional transporter into a trusted partner for top-tier manufacturers and delicate healthcare importers. His philosophy is simple: <em>A promise made is cargo delivered.</em>
                 </p>
               </div>
               
