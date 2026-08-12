@@ -5,6 +5,10 @@ import {
   Headset, Smartphone, Phone, Mail, Map, 
   ShieldCheck, Clock, Globe 
 } from 'lucide-react';
+import SectionContainer from '@/components/ui/SectionContainer';
+import TrustBadge from '@/components/ui/TrustBadge';
+import FormField from '@/components/ui/FormField';
+import { cargoTypes, containerSizes, vehicleTypes, trustIndicators } from '@/data/quote';
 
 export default function Quote() {
   const handleSubmit = (e) => {
@@ -41,7 +45,7 @@ export default function Quote() {
       </section>
 
       {/* Main Content Area: Form & Contact Info */}
-      <section className="max-w-[1440px] w-full mx-auto px-margin-mobile lg:px-margin-desktop py-16 -mt-10 z-20 relative">
+      <SectionContainer className="py-16 -mt-10 z-20 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
           
           {/* Left Column: Quote Form */}
@@ -58,26 +62,21 @@ export default function Quote() {
                   Contact Information
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex flex-col gap-2">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="fullName">Full Name *</label>
-                    <input className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50" id="fullName" placeholder="John Doe" required type="text" />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="companyName">Company Name</label>
-                    <input className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50" id="companyName" placeholder="Acme Corp" type="text" />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="email">Email Address *</label>
-                    <input className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50" id="email" placeholder="john@example.com" required type="email" />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="phone">Phone Number *</label>
-                    <input className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50" id="phone" placeholder="+1 (555) 000-0000" required type="tel" />
-                  </div>
-                  <div className="flex flex-col gap-2 md:col-span-2">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="whatsapp">WhatsApp Number (Optional)</label>
-                    <input className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50" id="whatsapp" placeholder="For faster communication" type="tel" />
-                  </div>
+                  <FormField label="Full Name" htmlFor="fullName" required>
+                    <input className={FormField.inputClass()} id="fullName" placeholder="John Doe" required type="text" />
+                  </FormField>
+                  <FormField label="Company Name" htmlFor="companyName">
+                    <input className={FormField.inputClass()} id="companyName" placeholder="Acme Corp" type="text" />
+                  </FormField>
+                  <FormField label="Email Address" htmlFor="email" required>
+                    <input className={FormField.inputClass()} id="email" placeholder="john@example.com" required type="email" />
+                  </FormField>
+                  <FormField label="Phone Number" htmlFor="phone" required>
+                    <input className={FormField.inputClass()} id="phone" placeholder="+1 (555) 000-0000" required type="tel" />
+                  </FormField>
+                  <FormField label="WhatsApp Number (Optional)" htmlFor="whatsapp" className="md:col-span-2">
+                    <input className={FormField.inputClass()} id="whatsapp" placeholder="For faster communication" type="tel" />
+                  </FormField>
                 </div>
               </div>
 
@@ -93,24 +92,27 @@ export default function Quote() {
                     <ArrowRight className="w-4 h-4" />
                   </div>
                   
-                  <div className="flex flex-col gap-2 relative z-20">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider flex items-center gap-2" htmlFor="pickupLocation">
-                      <CircleDot className="w-4 h-4 text-secondary-container" /> Pickup Location *
-                    </label>
-                    <input className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50" id="pickupLocation" placeholder="City, Port, or Address" required type="text" />
-                  </div>
+                  <FormField 
+                    label={<span className="flex items-center gap-2"><CircleDot className="w-4 h-4 text-secondary-container" /> Pickup Location</span>} 
+                    htmlFor="pickupLocation" 
+                    required 
+                    className="relative z-20"
+                  >
+                    <input className={FormField.inputClass()} id="pickupLocation" placeholder="City, Port, or Address" required type="text" />
+                  </FormField>
                   
-                  <div className="flex flex-col gap-2 relative z-20">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider flex items-center gap-2" htmlFor="deliveryLocation">
-                      <MapPin className="w-4 h-4 text-secondary-container" /> Delivery Location *
-                    </label>
-                    <input className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50" id="deliveryLocation" placeholder="City, Port, or Address" required type="text" />
-                  </div>
+                  <FormField 
+                    label={<span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-secondary-container" /> Delivery Location</span>} 
+                    htmlFor="deliveryLocation" 
+                    required 
+                    className="relative z-20"
+                  >
+                    <input className={FormField.inputClass()} id="deliveryLocation" placeholder="City, Port, or Address" required type="text" />
+                  </FormField>
                   
-                  <div className="flex flex-col gap-2 md:col-span-2 mt-4">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="requiredDate">Required Date *</label>
-                    <input className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" id="requiredDate" required type="date" />
-                  </div>
+                  <FormField label="Required Date" htmlFor="requiredDate" required className="md:col-span-2 mt-4">
+                    <input className={FormField.inputClass()} id="requiredDate" required type="date" />
+                  </FormField>
                 </div>
               </div>
 
@@ -120,47 +122,30 @@ export default function Quote() {
                   Cargo Specifications
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex flex-col gap-2">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="cargoType">Cargo Type *</label>
-                    <select className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all appearance-none cursor-pointer" id="cargoType" required defaultValue="">
+                  <FormField label="Cargo Type" htmlFor="cargoType" required>
+                    <select className={FormField.selectClass()} id="cargoType" required defaultValue="">
                       <option disabled value="">Select Cargo Type</option>
-                      <option value="general">General Merchandise</option>
-                      <option value="perishable">Perishable Goods</option>
-                      <option value="hazardous">Hazardous Materials</option>
-                      <option value="oversized">Oversized / Heavy Machinery</option>
-                      <option value="other">Other</option>
+                      {cargoTypes.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
                     </select>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="cargoWeight">Estimated Weight (kg/tons) *</label>
-                    <input className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50" id="cargoWeight" placeholder="e.g., 5000 kg" required type="text" />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="containerSize">Container Size</label>
-                    <select className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all appearance-none cursor-pointer" id="containerSize" defaultValue="">
+                  </FormField>
+                  <FormField label="Estimated Weight (kg/tons)" htmlFor="cargoWeight" required>
+                    <input className={FormField.inputClass()} id="cargoWeight" placeholder="e.g., 5000 kg" required type="text" />
+                  </FormField>
+                  <FormField label="Container Size" htmlFor="containerSize">
+                    <select className={FormField.selectClass()} id="containerSize" defaultValue="">
                       <option disabled value="">Select Container (Optional)</option>
-                      <option value="20ft">20ft Standard</option>
-                      <option value="40ft">40ft Standard</option>
-                      <option value="40hc">40ft High Cube</option>
-                      <option value="lcl">LCL (Less than Container Load)</option>
-                      <option value="other">Other</option>
+                      {containerSizes.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
                     </select>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="vehicleRequired">Vehicle Required</label>
-                    <select className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all appearance-none cursor-pointer" id="vehicleRequired" defaultValue="">
+                  </FormField>
+                  <FormField label="Vehicle Required" htmlFor="vehicleRequired">
+                    <select className={FormField.selectClass()} id="vehicleRequired" defaultValue="">
                       <option disabled value="">Select Vehicle (Optional)</option>
-                      <option value="flatbed">Flatbed Truck</option>
-                      <option value="reefer">Refrigerated Truck</option>
-                      <option value="box">Box Truck</option>
-                      <option value="van">Cargo Van</option>
-                      <option value="not_sure">Not Sure</option>
+                      {vehicleTypes.map(v => <option key={v.value} value={v.value}>{v.label}</option>)}
                     </select>
-                  </div>
-                  <div className="flex flex-col gap-2 md:col-span-2">
-                    <label className="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider" htmlFor="additionalDetails">Additional Details</label>
-                    <textarea className="bg-surface-container-lowest text-on-surface font-body-md text-body-md p-3 rounded-lg outline-none border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/50 resize-none" id="additionalDetails" placeholder="Provide any special handling instructions, specific dimensions, or other requirements..." rows="4" />
-                  </div>
+                  </FormField>
+                  <FormField label="Additional Details" htmlFor="additionalDetails" className="md:col-span-2">
+                    <textarea className={FormField.textareaClass()} id="additionalDetails" placeholder="Provide any special handling instructions, specific dimensions, or other requirements..." rows="4" />
+                  </FormField>
                 </div>
               </div>
               
@@ -249,42 +234,26 @@ export default function Quote() {
           </div>
           
         </div>
-      </section>
+      </SectionContainer>
 
       {/* Trust Indicators Section */}
       <section className="bg-surface-container py-16 border-t border-outline-variant/20">
-        <div className="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop">
+        <SectionContainer>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-16 h-16 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary mb-2">
-                <ShieldCheck className="w-8 h-8" />
-              </div>
-              <h4 className="font-headline-sm text-headline-sm text-on-surface">Secure Transport</h4>
-              <p className="font-body-sm text-body-sm text-on-surface-variant">Fully insured cargo movement</p>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-16 h-16 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary mb-2">
-                <Clock className="w-8 h-8" />
-              </div>
-              <h4 className="font-headline-sm text-headline-sm text-on-surface">On-Time Delivery</h4>
-              <p className="font-body-sm text-body-sm text-on-surface-variant">Strict adherence to schedules</p>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-16 h-16 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary mb-2">
-                <Globe className="w-8 h-8" />
-              </div>
-              <h4 className="font-headline-sm text-headline-sm text-on-surface">Global Network</h4>
-              <p className="font-body-sm text-body-sm text-on-surface-variant">Extensive routing options</p>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-16 h-16 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary mb-2">
-                <Headset className="w-8 h-8" />
-              </div>
-              <h4 className="font-headline-sm text-headline-sm text-on-surface">24/7 Support</h4>
-              <p className="font-body-sm text-body-sm text-on-surface-variant">Dedicated logistics team</p>
-            </div>
+            {trustIndicators.map((indicator, index) => {
+              const icons = { ShieldCheck, Clock, Globe, Headset };
+              const IconComp = icons[indicator.iconName];
+              return (
+                <TrustBadge 
+                  key={index} 
+                  icon={<IconComp className="w-8 h-8" />} 
+                  title={indicator.title} 
+                  description={indicator.description} 
+                />
+              );
+            })}
           </div>
-        </div>
+        </SectionContainer>
       </section>
 
       <style dangerouslySetInnerHTML={{__html: `

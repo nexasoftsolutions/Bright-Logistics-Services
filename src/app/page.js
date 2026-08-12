@@ -2,6 +2,11 @@
 
 import { useState } from 'react';
 import { ArrowRight, PlayCircle, Search, Check, Truck, MapPin, PlaneTakeoff, Ship, Warehouse } from 'lucide-react';
+import SectionContainer from '@/components/ui/SectionContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
+import { coreServices, infrastructureStats } from '@/data/home';
+
+const iconMap = { PlaneTakeoff, Ship, Truck, Warehouse };
 
 export default function Home() {
 
@@ -25,7 +30,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
         </div>
         
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop flex flex-col justify-center">
+        <SectionContainer className="relative z-10 w-full flex flex-col justify-center">
           <div className="max-w-2xl space-y-6">
             <div className="inline-block bg-secondary-container/20 px-4 py-1.5 rounded-full">
               <span className="font-label-bold text-label-bold text-secondary-fixed uppercase tracking-widest">Global Logistics Command</span>
@@ -47,11 +52,11 @@ export default function Home() {
               </button>
             </div>
           </div>
-        </div>
+        </SectionContainer>
       </section>
 
       {/* Command Center / Tracking Overlap */}
-      <section className="relative z-20 w-full max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop -mt-24 mb-16">
+      <SectionContainer as="section" className="relative z-20 w-full -mt-24 mb-16">
         <div className="bg-surface text-on-surface rounded-xl shadow-[0_8px_30px_rgba(0,31,63,0.12)] p-6 lg:p-10 flex flex-col gap-8">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
@@ -125,16 +130,18 @@ export default function Home() {
             </div>
           )}
         </div>
-      </section>
+      </SectionContainer>
 
       {/* Core Services */}
       <section className="w-full py-16 bg-background">
-        <div className="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop">
+        <SectionContainer>
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
-            <div className="max-w-2xl">
-              <span className="font-label-bold text-label-bold text-secondary uppercase tracking-widest block mb-4">Core Solutions</span>
-              <h2 className="font-headline-lg text-headline-lg text-on-background">Engineered for Global Scale.</h2>
-            </div>
+            <SectionHeading
+              eyebrow="Core Solutions"
+              title="Engineered for Global Scale."
+              titleClassName="text-on-background"
+              className="max-w-2xl"
+            />
             <button className="bg-surface-container-low text-primary px-6 py-3 rounded hover:bg-surface-container transition-colors font-label-bold text-label-bold uppercase flex items-center gap-2 group shadow-sm">
               View All Services
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -142,69 +149,44 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-            <div className="group bg-surface text-on-surface p-8 rounded-xl shadow-sm hover:shadow-[0_8px_30px_rgba(0,31,63,0.08)] transition-all duration-300 relative overflow-hidden flex flex-col h-full">
-              <div className="absolute -right-8 -top-8 w-32 h-32 bg-surface-container-low rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
-              <PlaneTakeoff className="w-10 h-10 text-primary mb-6 relative z-10" />
-              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-3 relative z-10">Air Freight</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant flex-grow relative z-10">Expedited global air transport for time-critical cargo with priority routing.</p>
-              <div className="mt-6 flex items-center gap-2 text-secondary-container font-label-bold text-label-bold uppercase tracking-wider relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                Discover More <ArrowRight className="w-4 h-4" />
-              </div>
-            </div>
-
-            <div className="group bg-surface text-on-surface p-8 rounded-xl shadow-sm hover:shadow-[0_8px_30px_rgba(0,31,63,0.08)] transition-all duration-300 relative overflow-hidden flex flex-col h-full">
-              <div className="absolute -right-8 -top-8 w-32 h-32 bg-surface-container-low rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
-              <Ship className="w-10 h-10 text-primary mb-6 relative z-10" />
-              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-3 relative z-10">Ocean Freight</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant flex-grow relative z-10">Cost-effective FCL and LCL shipping solutions across major global trade lanes.</p>
-              <div className="mt-6 flex items-center gap-2 text-secondary-container font-label-bold text-label-bold uppercase tracking-wider relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                Discover More <ArrowRight className="w-4 h-4" />
-              </div>
-            </div>
-
-            <div className="group bg-surface text-on-surface p-8 rounded-xl shadow-sm hover:shadow-[0_8px_30px_rgba(0,31,63,0.08)] transition-all duration-300 relative overflow-hidden flex flex-col h-full">
-              <div className="absolute -right-8 -top-8 w-32 h-32 bg-surface-container-low rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
-              <Truck className="w-10 h-10 text-primary mb-6 relative z-10" />
-              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-3 relative z-10">Road Transport</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant flex-grow relative z-10">Extensive ground network ensuring seamless domestic and cross-border delivery.</p>
-              <div className="mt-6 flex items-center gap-2 text-secondary-container font-label-bold text-label-bold uppercase tracking-wider relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                Discover More <ArrowRight className="w-4 h-4" />
-              </div>
-            </div>
-
-            <div className="group bg-surface text-on-surface p-8 rounded-xl shadow-sm hover:shadow-[0_8px_30px_rgba(0,31,63,0.08)] transition-all duration-300 relative overflow-hidden flex flex-col h-full">
-              <div className="absolute -right-8 -top-8 w-32 h-32 bg-surface-container-low rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
-              <Warehouse className="w-10 h-10 text-primary mb-6 relative z-10" />
-              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-3 relative z-10">Warehousing</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant flex-grow relative z-10">Secure, scalable storage and distribution centers equipped with modern inventory tech.</p>
-              <div className="mt-6 flex items-center gap-2 text-secondary-container font-label-bold text-label-bold uppercase tracking-wider relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                Discover More <ArrowRight className="w-4 h-4" />
-              </div>
-            </div>
+            {coreServices.map((service) => {
+              const Icon = iconMap[service.iconName];
+              return (
+                <div key={service.id} className="group bg-surface text-on-surface p-8 rounded-xl shadow-sm hover:shadow-[0_8px_30px_rgba(0,31,63,0.08)] transition-all duration-300 relative overflow-hidden flex flex-col h-full">
+                  <div className="absolute -right-8 -top-8 w-32 h-32 bg-surface-container-low rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
+                  <Icon className="w-10 h-10 text-primary mb-6 relative z-10" />
+                  <h3 className="font-headline-sm text-headline-sm text-on-surface mb-3 relative z-10">{service.title}</h3>
+                  <p className="font-body-md text-body-md text-on-surface-variant flex-grow relative z-10">{service.description}</p>
+                  <div className="mt-6 flex items-center gap-2 text-secondary-container font-label-bold text-label-bold uppercase tracking-wider relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Discover More <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        </div>
+        </SectionContainer>
       </section>
 
       {/* Infrastructure Section */}
       <section className="w-full py-24 bg-surface-container-low">
-        <div className="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+        <SectionContainer className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
           <div className="lg:col-span-5 flex flex-col justify-center gap-8">
-            <div>
-              <span className="font-label-bold text-label-bold text-secondary uppercase tracking-widest block mb-4">Infrastructure</span>
-              <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">A Network Built <br /> for Reliability.</h2>
+            <SectionHeading
+              eyebrow="Infrastructure"
+              title={<>A Network Built <br /> for Reliability.</>}
+              titleClassName="text-on-surface mb-6"
+            >
               <p className="font-body-md text-body-md text-on-surface-variant">
                 Our strategic infrastructure positions your business for success. With hubs in key economic zones, we reduce transit times and optimize supply chain resilience.
               </p>
-            </div>
+            </SectionHeading>
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-surface p-6 rounded-lg shadow-sm">
-                <span className="font-headline-xl text-headline-xl text-primary block mb-2">120+</span>
-                <span className="font-label-bold text-label-bold text-outline uppercase">Global Hubs</span>
-              </div>
-              <div className="bg-surface p-6 rounded-lg shadow-sm">
-                <span className="font-headline-xl text-headline-xl text-secondary-container block mb-2">1M+</span>
-                <span className="font-label-bold text-label-bold text-outline uppercase">Tons Shipped</span>
-              </div>
+              {infrastructureStats.map(stat => (
+                <div key={stat.id} className="bg-surface p-6 rounded-lg shadow-sm">
+                  <span className={`font-headline-xl text-headline-xl ${stat.valueColor} block mb-2`}>{stat.value}</span>
+                  <span className="font-label-bold text-label-bold text-outline uppercase">{stat.label}</span>
+                </div>
+              ))}
             </div>
           </div>
           
@@ -230,7 +212,7 @@ export default function Home() {
               style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDYGrkH7fg5H-oeCR_Y8n7at1VP9AyGwB0N7r3PCgV9rOpJCgAtYy0jpiJ_q1QHAWqonq21kjuOxyTyllZ8Mn5uX7i54aPxCOBUi-mKcAv2lVTaoqbCaakNVxZ9fCqoQMGw01m3Blvwrabw0N3jWcS7dMUm9u_5tVHCdl4VV9eZsb_4X75EK7Ljjw9My07gXTHbD_efPg7sOHKSb1ILf08ObXVocgsDPNVL2MWe7krKHAKFz7sfJOaF6g')" }}
             />
           </div>
-        </div>
+        </SectionContainer>
       </section>
     </div>
   );

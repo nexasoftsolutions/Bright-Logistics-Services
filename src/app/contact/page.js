@@ -1,6 +1,10 @@
 'use client';
 
 import { MapPin, Phone, MessageCircle, User, ArrowRight } from 'lucide-react';
+import PageHero from '@/components/ui/PageHero';
+import SectionContainer from '@/components/ui/SectionContainer';
+import ContactItem from '@/components/ui/ContactItem';
+import FormField from '@/components/ui/FormField';
 
 export default function ContactUs() {
   const handleSubmit = (e) => {
@@ -11,22 +15,15 @@ export default function ContactUs() {
   return (
     <div className="flex flex-col w-full min-h-screen">
       {/* Hero Section */}
-      <section 
-        className="relative w-full h-[400px] flex items-center justify-center -mt-20 pt-20 bg-cover bg-center" 
-        style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCccAvB64SHakh6sI6zlntsUiiDtsw_0GWFCtjcMSuRdRTYIF6caXtFV9b0zVEt0aPRSwfu6GhChwctK-oDYkb_AaOcEiUOKc5nh3JhQwuRA3Jkl4z1kpqZ8pPqIJTvxJ0sETnlRT5S4tqlelb208ELsUilOcitswZsBLPIiW6Xp4SWWsbt1h0qJY0YedIJcamQbRljPaLoXHqF-QxuWgsM8PZfOOKzF2dPg3NIryjNPRyV9sk8UJPmtg')" }}
-      >
-        <div className="absolute inset-0 bg-primary/70 backdrop-blur-sm" />
-        <div className="relative z-10 max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop w-full text-center">
-          <h1 className="font-headline-xl text-on-primary mb-4">Contact Us</h1>
-          <p className="font-body-lg text-on-primary-container max-w-2xl mx-auto">
-            Get in touch with Bright Logistics Services. We are here to answer your questions and provide the transportation solutions you need.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        backgroundImage="url('https://lh3.googleusercontent.com/aida-public/AB6AXuCccAvB64SHakh6sI6zlntsUiiDtsw_0GWFCtjcMSuRdRTYIF6caXtFV9b0zVEt0aPRSwfu6GhChwctK-oDYkb_AaOcEiUOKc5nh3JhQwuRA3Jkl4z1kpqZ8pPqIJTvxJ0sETnlRT5S4tqlelb208ELsUilOcitswZsBLPIiW6Xp4SWWsbt1h0qJY0YedIJcamQbRljPaLoXHqF-QxuWgsM8PZfOOKzF2dPg3NIryjNPRyV9sk8UJPmtg')"
+        title="Contact Us"
+        subtitle="Get in touch with Bright Logistics Services. We are here to answer your questions and provide the transportation solutions you need."
+      />
 
       {/* Content Section */}
       <section className="w-full bg-surface py-16 lg:py-24 flex-grow">
-        <div className="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop">
+        <SectionContainer>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-gutter">
             
             {/* Left Column: Contact Info */}
@@ -38,52 +35,35 @@ export default function ContactUs() {
                 </div>
                 
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 shadow-sm shrink-0">
-                      <MapPin className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-headline-sm text-on-surface">Headquarters</h3>
-                      <p className="font-body-md text-on-surface-variant mt-1">Karachi, Pakistan</p>
-                    </div>
-                  </div>
+                  <ContactItem 
+                    icon={<MapPin className="w-6 h-6" />} 
+                    title="Headquarters" 
+                    value="Karachi, Pakistan" 
+                  />
                   
-                  <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 shadow-sm shrink-0">
-                      <Phone className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-headline-sm text-on-surface">Main Office</h3>
-                      <a className="font-body-md text-on-surface-variant mt-1 hover:text-secondary transition-colors block" href="tel:03000641482">
-                        0300-0641482
-                      </a>
-                    </div>
-                  </div>
+                  <ContactItem 
+                    icon={<Phone className="w-6 h-6" />} 
+                    title="Main Office" 
+                    value="0300-0641482" 
+                    href="tel:03000641482" 
+                  />
                   
-                  <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 shadow-sm shrink-0">
-                      <MessageCircle className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-headline-sm text-on-surface">WhatsApp Support</h3>
-                      <a className="font-body-md text-on-surface-variant mt-1 hover:text-secondary transition-colors block" href="https://wa.me/923000641482" target="_blank" rel="noopener noreferrer">
-                        0300-0641482
-                      </a>
-                    </div>
-                  </div>
+                  <ContactItem 
+                    icon={<MessageCircle className="w-6 h-6" />} 
+                    title="WhatsApp Support" 
+                    value="0300-0641482" 
+                    href="https://wa.me/923000641482" 
+                  />
                   
-                  <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 shadow-sm shrink-0">
-                      <User className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-headline-sm text-on-surface">Director</h3>
-                      <p className="font-body-md text-on-surface-variant mt-1">Ibrar Khan</p>
-                      <a className="font-body-md text-on-surface-variant mt-1 hover:text-secondary transition-colors block" href="tel:03000641481">
-                        0300-0641481
-                      </a>
-                    </div>
-                  </div>
+                  <ContactItem 
+                    icon={<User className="w-6 h-6" />} 
+                    title="Director" 
+                  >
+                    <p className="font-body-md text-on-surface-variant mt-1">Ibrar Khan</p>
+                    <a className="font-body-md text-on-surface-variant mt-1 hover:text-secondary transition-colors block" href="tel:03000641481">
+                      0300-0641481
+                    </a>
+                  </ContactItem>
                 </div>
               </div>
             </div>
@@ -97,47 +77,43 @@ export default function ContactUs() {
                 </div>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="font-label-bold text-on-surface block uppercase tracking-wider" htmlFor="name">Full Name</label>
+                    <FormField label="Full Name" htmlFor="name" required>
                       <input 
-                        className="w-full bg-surface-bright border-b-2 border-outline-variant focus:border-primary text-on-surface font-body-md py-3 px-4 transition-colors outline-none hover:bg-surface-container-low rounded-t-md" 
+                        className={FormField.inputClass('underlined')}
                         id="name" 
                         placeholder="Jane Doe" 
                         required 
                         type="text" 
                       />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="font-label-bold text-on-surface block uppercase tracking-wider" htmlFor="email">Email Address</label>
+                    </FormField>
+                    <FormField label="Email Address" htmlFor="email" required>
                       <input 
-                        className="w-full bg-surface-bright border-b-2 border-outline-variant focus:border-primary text-on-surface font-body-md py-3 px-4 transition-colors outline-none hover:bg-surface-container-low rounded-t-md" 
+                        className={FormField.inputClass('underlined')}
                         id="email" 
                         placeholder="jane@company.com" 
                         required 
                         type="email" 
                       />
-                    </div>
+                    </FormField>
                   </div>
-                  <div className="space-y-2">
-                    <label className="font-label-bold text-on-surface block uppercase tracking-wider" htmlFor="subject">Subject / Reference</label>
+                  <FormField label="Subject / Reference" htmlFor="subject" required>
                     <input 
-                      className="w-full bg-surface-bright border-b-2 border-outline-variant focus:border-primary text-on-surface font-body-md py-3 px-4 transition-colors outline-none hover:bg-surface-container-low rounded-t-md" 
+                      className={FormField.inputClass('underlined')}
                       id="subject" 
                       placeholder="Inquiry regarding shipment #BLS-..." 
                       required 
                       type="text" 
                     />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="font-label-bold text-on-surface block uppercase tracking-wider" htmlFor="message">Message</label>
+                  </FormField>
+                  <FormField label="Message" htmlFor="message" required>
                     <textarea 
-                      className="w-full bg-surface-bright border-b-2 border-outline-variant focus:border-primary text-on-surface font-body-md py-3 px-4 transition-colors outline-none hover:bg-surface-container-low rounded-t-md resize-none" 
+                      className={FormField.textareaClass('underlined')}
                       id="message" 
                       placeholder="Provide details about your logistics needs..." 
                       required 
                       rows="5" 
                     />
-                  </div>
+                  </FormField>
                   <button 
                     className="w-full md:w-auto bg-primary text-on-primary hover:bg-secondary hover:text-on-secondary px-8 py-4 rounded-lg font-label-bold tracking-widest uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-3" 
                     type="submit"
@@ -150,12 +126,12 @@ export default function ContactUs() {
             </div>
             
           </div>
-        </div>
+        </SectionContainer>
       </section>
 
       {/* Map Section */}
       <section className="w-full bg-surface py-12">
-        <div className="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop">
+        <SectionContainer>
           <div className="w-full h-[400px] lg:h-[500px] rounded-2xl shadow-xl overflow-hidden relative group">
             <iframe 
               allowFullScreen 
@@ -167,7 +143,7 @@ export default function ContactUs() {
               width="100%"
             />
           </div>
-        </div>
+        </SectionContainer>
       </section>
     </div>
   );
