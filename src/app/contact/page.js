@@ -22,7 +22,7 @@ export default function ContactUs() {
       />
 
       {/* Content Section */}
-      <section className="w-full bg-surface py-16 lg:py-24 flex-grow">
+      <section className="w-full bg-surface py-10 lg:py-24 flex-grow">
         <SectionContainer>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-gutter">
             

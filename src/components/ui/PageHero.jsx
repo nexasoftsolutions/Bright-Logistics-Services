@@ -27,7 +27,7 @@ export default function PageHero({
 }) {
   return (
     <section
-      className={`relative w-full h-[400px] flex items-center justify-center -mt-20 pt-20 bg-cover bg-center ${sectionClassName}`}
+      className={`relative w-full min-h-[300px] md:min-h-[400px] flex items-center justify-center -mt-20 pt-20 bg-cover bg-center ${sectionClassName}`}
       style={{ backgroundImage: `url('${backgroundImage}')` }}
     >
       <div className={`absolute inset-0 ${overlayClassName}`} />

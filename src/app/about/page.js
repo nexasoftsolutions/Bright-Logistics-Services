@@ -9,7 +9,7 @@ export default function AboutUs() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero / Header Section */}
-      <section className="relative w-full pt-16 pb-24 md:pt-32 md:pb-40 px-margin-mobile md:px-margin-desktop overflow-hidden">
+      <section className="relative w-full py-12 md:py-24 px-margin-mobile md:px-margin-desktop overflow-hidden">
         <div className="absolute inset-0 bg-surface-container opacity-50 z-0" />
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary-fixed-dim/20 rounded-full blur-[100px] z-0" />
         <SectionContainer className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
@@ -37,7 +37,7 @@ export default function AboutUs() {
       </section>
 
       {/* Mission & Vision (Asymmetric Split) */}
-      <section className="w-full py-24 px-margin-mobile md:px-margin-desktop bg-surface-lowest">
+      <section className="w-full py-12 md:py-24 px-margin-mobile md:px-margin-desktop bg-surface-lowest">
         <SectionContainer>
           <div className="flex flex-col lg:flex-row gap-16 md:gap-24 relative">
             <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-outline-variant to-transparent" />
@@ -73,7 +73,7 @@ export default function AboutUs() {
       </section>
 
       {/* Stats Section */}
-      <section className="w-full py-20 bg-primary text-on-primary">
+      <section className="w-full py-12 md:py-24 bg-primary text-on-primary">
         <SectionContainer>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-x divide-on-primary/10">
             {companyStats.map(stat => {
@@ -91,7 +91,7 @@ export default function AboutUs() {
       </section>
 
       {/* Leadership Section */}
-      <section className="w-full py-24 px-margin-mobile md:px-margin-desktop bg-surface relative overflow-hidden">
+      <section className="w-full py-12 md:py-24 px-margin-mobile md:px-margin-desktop bg-surface relative overflow-hidden">
         <svg className="absolute -right-24 top-0 w-96 h-96 text-surface-container opacity-50" fill="currentColor" viewBox="0 0 200 200">
           <path d="M 0,100 C 0,44.77 44.77,0 100,0 C 155.23,0 200,44.77 200,100 C 200,155.23 155.23,200 100,200 C 44.77,200 0,155.23 0,100 Z" />
         </svg>

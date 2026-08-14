@@ -83,7 +83,7 @@ export default function Gallery() {
       </section>
 
       {/* Main Content Wrapper */}
-      <SectionContainer className="w-full mt-5 py-16 lg:py-24 flex flex-col gap-12 relative z-20 -mt-16 bg-surface rounded-t-3xl shadow-xl">
+      <SectionContainer className="w-full mt-5 py-10 lg:py-24 flex flex-col gap-12 relative z-20 -mt-16 bg-surface rounded-t-3xl shadow-xl">
         
         {/* Filter Section */}
         <div className="flex flex-col gap-6">

@@ -1,7 +1,7 @@
 import { Route, Building2, Factory, Building, Warehouse, Tractor, Truck, Package, MapPin } from 'lucide-react';
 import { hubs } from '@/data/hubs';
 import { SectionContainer } from '@/components/ui';
-import PakistanMap from '@/components/ui/PakistanMap';
+import DynamicMap from '@/components/ui/DynamicMap';
 
 const IconMap = {
   Route, Building2, Factory, Building, Warehouse, Tractor, Truck, Package, MapPin
@@ -11,7 +11,7 @@ export default function Coverage() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
-      <section className="relative bg-primary text-on-primary py-24 lg:py-32 overflow-hidden flex items-center justify-center min-h-[409px]">
+      <section className="relative bg-primary text-on-primary py-12 lg:py-32 overflow-hidden flex items-center justify-center min-h-[409px]">
         <div className="absolute inset-0 z-0">
           <div 
             className="bg-cover bg-center w-full h-full opacity-60 mix-blend-luminosity" 
@@ -38,8 +38,8 @@ export default function Coverage() {
         </div>
       </section>
 
-      {/* Routes Map Section */}
-      <section className="py-24 bg-surface text-on-surface">
+      {/* Introduction / Stats Section */}
+      <section className="py-12 md:py-24 bg-surface text-on-surface">
         <SectionContainer className="space-y-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 relative">
@@ -74,14 +74,14 @@ export default function Coverage() {
                 className="absolute w-full h-full bg-cover bg-center mix-blend-luminosity opacity-60" 
                 style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDxqMR0Vg7gu483jSlIvCYfNio9kt4JtlPWYXc6a_IT0ZHO2iQuDPK3vpXyI3hkjDDdW268zl9P_-ox8sE4wxViqDQc_RO1_YHmb286Dum9PIerm4_lGNDuFfFzWsYpPpcD6Iw-J9Bkbx0yhvUinshGPjBNVw1TZhuztCvcP4X68BlTLy85O0rHcFVsQ-4vCy1sKNhnUdY-0IYGF4w0miKkFp4gVC46AJQXpEWNvEEoQA_xfP_ebbznvQ')" }}
               />
-              <PakistanMap />
+              <DynamicMap />
             </div>
           </div>
         </SectionContainer>
       </section>
 
-      {/* Hubs Grid Section */}
-      <section className="py-24 bg-surface-container text-on-surface relative overflow-hidden">
+      {/* Global & Domestic Network Map Section */}
+      <section className="py-12 md:py-24 bg-surface-container text-on-surface relative overflow-hidden">
         <div className="absolute -right-32 top-0 w-96 h-96 bg-primary-fixed/30 rounded-full blur-3xl" />
         <SectionContainer className="relative z-10">
           <div className="text-center mb-16 space-y-4">

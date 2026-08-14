@@ -132,8 +132,8 @@ export default function Home() {
         </div>
       </SectionContainer>
 
-      {/* Core Services */}
-      <section className="w-full py-16 bg-background">
+      {/* Features/Values Section */}
+      <section className="w-full py-12 lg:py-16 bg-background">
         <SectionContainer>
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
             <SectionHeading
@@ -167,8 +167,8 @@ export default function Home() {
         </SectionContainer>
       </section>
 
-      {/* Infrastructure Section */}
-      <section className="w-full py-24 bg-surface-container-low">
+      {/* Stats/Proof Section */}
+      <section className="w-full py-12 lg:py-24 bg-surface-container-low">
         <SectionContainer className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
           <div className="lg:col-span-5 flex flex-col justify-center gap-8">
             <SectionHeading

@@ -1,77 +1,73 @@
 'use client';
-import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
-const geoUrl = "/pakistan.json";
+import { useEffect } from 'react';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
+// Fix leaflet default icon issue in Next.js
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
+
+// React-Leaflet uses [latitude, longitude]
 const markers = [
-  { name: 'Karachi', coordinates: [67.0011, 24.8607], isHQ: true },
-  { name: 'Lahore', coordinates: [74.3587, 31.5204] },
-  { name: 'Islamabad', coordinates: [73.0479, 33.6844] },
-  { name: 'Rawalpindi', coordinates: [73.0405, 33.5973] },
-  { name: 'Sahiwal', coordinates: [73.1040, 30.6682] },
-  { name: 'Multan', coordinates: [71.4753, 30.1575] },
-  { name: 'Kasur', coordinates: [74.4465, 31.1157] },
-  { name: 'Abbottabad', coordinates: [73.2215, 34.1688] },
-  { name: 'Nowshera', coordinates: [71.9754, 34.0158] },
-  { name: 'Talagang', coordinates: [72.4138, 32.9297] },
+  { name: 'Karachi', coordinates: [24.8607, 67.0011], isHQ: true },
+  { name: 'Lahore', coordinates: [31.5204, 74.3587] },
+  { name: 'Islamabad', coordinates: [33.6844, 73.0479] },
+  { name: 'Rawalpindi', coordinates: [33.5973, 73.0405] },
+  { name: 'Sahiwal', coordinates: [30.6682, 73.1040] },
+  { name: 'Multan', coordinates: [30.1575, 71.4753] },
+  { name: 'Kasur', coordinates: [31.1157, 74.4465] },
+  { name: 'Abbottabad', coordinates: [34.1688, 73.2215] },
+  { name: 'Nowshera', coordinates: [34.0158, 71.9754] },
+  { name: 'Talagang', coordinates: [32.9297, 72.4138] },
 ];
 
 export default function PakistanMap() {
-  return (
-    <ComposableMap
-      projection="geoMercator"
-      projectionConfig={{
-        scale: 2200,
-        center: [70, 30.5]
-      }}
-      className="w-full h-full relative z-10 p-4"
-    >
-      <Geographies geography={geoUrl}>
-        {({ geographies }) =>
-          geographies.map((geo) => (
-            <Geography
-              key={geo.rsmKey}
-              geography={geo}
-              fill="#001f3f"
-              stroke="#6f88ad"
-              strokeWidth={1.5}
-              style={{
-                default: { outline: "none" },
-                hover: { fill: "#003366", outline: "none" },
-                pressed: { outline: "none" },
-              }}
-            />
-          ))
-        }
-      </Geographies>
-      
-      {/* Route lines connecting some major cities */}
-      <svg className="absolute inset-0 pointer-events-none opacity-80" viewBox="0 0 800 600" preserveAspectRatio="none">
-         {/* Since exact screen paths from D3 aren't accessible here easily without Line components, 
-             we rely on the markers being perfectly accurate geologically instead. */}
-      </svg>
+  const createCustomIcon = (name, isHQ) => {
+    return L.divIcon({
+      className: 'custom-leaflet-icon bg-transparent border-none',
+      html: `
+        <div class="flex flex-col items-center justify-center -translate-x-1/2 -translate-y-1/2" style="transform: translate(-50%, -50%);">
+          <div class="relative flex items-center justify-center">
+            ${isHQ ? '<div class="absolute w-5 h-5 bg-[#fd8b00] rounded-full animate-pulse opacity-60"></div>' : ''}
+            <div class="${isHQ ? 'w-3 h-3 bg-[#fd8b00]' : 'w-2 h-2 bg-white'} rounded-full relative z-10 shadow-[0_0_8px_rgba(253,139,0,0.8)]"></div>
+          </div>
+          <div class="mt-1 ${isHQ ? 'text-white font-bold text-sm' : 'text-[#d5e3fd] text-[10px] font-medium'} whitespace-nowrap drop-shadow-md" style="font-family: system-ui, sans-serif;">
+            ${name}${isHQ ? ' (HQ)' : ''}
+          </div>
+        </div>
+      `,
+      iconSize: [0, 0],
+      iconAnchor: [0, 0]
+    });
+  };
 
-      {markers.map(({ name, coordinates, isHQ }) => (
-        <Marker key={name} coordinates={coordinates}>
-          <circle 
-            r={isHQ ? 8 : 4} 
-            fill={isHQ ? "#fd8b00" : "#ffffff"} 
-            className={isHQ ? "animate-pulse drop-shadow-[0_0_8px_rgba(253,139,0,0.8)]" : ""}
+  return (
+    <div className="w-full h-[400px] md:h-full relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+      <MapContainer 
+        center={[30.5, 70]} 
+        zoom={5} 
+        scrollWheelZoom={false}
+        className="w-full h-full bg-primary"
+        style={{ background: '#000613' }}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+        />
+        {markers.map(({ name, coordinates, isHQ }) => (
+          <Marker 
+            key={name} 
+            position={coordinates}
+            icon={createCustomIcon(name, isHQ)}
           />
-          <text
-            textAnchor="middle"
-            y={isHQ ? -15 : -10}
-            style={{ 
-              fontFamily: "system-ui", 
-              fill: isHQ ? "white" : "#d5e3fd", 
-              fontSize: isHQ ? 14 : 11, 
-              fontWeight: isHQ ? "bold" : "normal" 
-            }}
-          >
-            {name}{isHQ ? " (HQ)" : ""}
-          </text>
-        </Marker>
-      ))}
-    </ComposableMap>
+        ))}
+      </MapContainer>
+    </div>
   );
 }
