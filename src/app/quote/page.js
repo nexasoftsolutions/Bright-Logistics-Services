@@ -1,9 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import { 
   ClipboardList, ArrowRight, CircleDot, MapPin, Send, 
   Headset, Smartphone, Phone, Mail, Map, 
-  ShieldCheck, Clock, Globe 
+  ShieldCheck, Clock, Globe, Loader2 
 } from 'lucide-react';
 import SectionContainer from '@/components/ui/SectionContainer';
 import TrustBadge from '@/components/ui/TrustBadge';
@@ -11,9 +12,55 @@ import FormField from '@/components/ui/FormField';
 import { cargoTypes, containerSizes, vehicleTypes, trustIndicators } from '@/data/quote';
 
 export default function Quote() {
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Quote Request Submitted!');
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    setSubmitMessage('');
+
+    const formData = {
+      fullName: e.target.fullName.value,
+      companyName: e.target.companyName.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+      whatsapp: e.target.whatsapp.value,
+      pickupLocation: e.target.pickupLocation.value,
+      deliveryLocation: e.target.deliveryLocation.value,
+      requiredDate: e.target.requiredDate.value,
+      cargoType: e.target.cargoType.value,
+      cargoWeight: e.target.cargoWeight.value,
+      containerSize: e.target.containerSize.value,
+      vehicleRequired: e.target.vehicleRequired.value,
+      additionalDetails: e.target.additionalDetails.value,
+    };
+
+    try {
+      const response = await fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setSubmitMessage('Your quote request has been submitted successfully! Our team will contact you shortly.');
+        e.target.reset();
+      } else {
+        setSubmitStatus('error');
+        setSubmitMessage(result.error || 'Something went wrong. Please try again later.');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setSubmitMessage('A network error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -149,11 +196,22 @@ export default function Quote() {
                 </div>
               </div>
               
+              {/* Submit Message */}
+              {submitStatus && (
+                <div className={`p-4 rounded-lg font-body-md text-body-md ${submitStatus === 'success' ? 'bg-[#25D366]/10 text-[#128C7E] border border-[#25D366]/30' : 'bg-red-50 text-red-600 border border-red-200'}`}>
+                  {submitMessage}
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="pt-4 flex justify-end">
-                <button className="bg-secondary-container hover:bg-secondary text-on-secondary-fixed-variant hover:text-on-secondary font-label-bold text-label-bold uppercase tracking-wider py-4 px-10 rounded-full transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-3 transform hover:-translate-y-1" type="submit">
-                  <span>Request a Quote</span>
-                  <Send className="w-5 h-5" />
+                <button 
+                  disabled={isSubmitting}
+                  className="bg-secondary-container disabled:opacity-70 disabled:cursor-not-allowed hover:bg-secondary text-on-secondary-fixed-variant hover:text-on-secondary font-label-bold text-label-bold uppercase tracking-wider py-4 px-10 rounded-full transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-3 transform hover:-translate-y-1" 
+                  type="submit"
+                >
+                  <span>{isSubmitting ? 'Submitting...' : 'Request a Quote'}</span>
+                  {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
                 </button>
               </div>
             </form>
