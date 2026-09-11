@@ -1,11 +1,11 @@
 import { HeartPulse, Factory, Ship, Warehouse, Truck, HardHat, Building2 } from 'lucide-react';
 import SectionContainer from '@/components/ui/SectionContainer';
 import { industries } from '@/data/industries';
-import { Breadcrumbs, CTABanner } from '@/components/ui';
+import { Breadcrumbs, CTABanner, HeroSlideshow } from '@/components/ui';
 
 export const metadata = {
-  title: "Industries We Serve | Heavy Cargo Transportation",
-  description: "We serve various sectors providing Warehouse Transportation, Heavy Cargo Transportation, and industrial logistics solutions across Pakistan.",
+  title: "Industries Served | Heavy Cargo Transportation",
+  description: "Specialized Warehouse Transportation and Heavy Cargo Transportation solutions across diverse industries in Pakistan.",
 };
 
 const iconMap = {
@@ -17,10 +17,9 @@ export default function Industries() {
     <div className="flex flex-col w-full">
       <section className="relative w-full py-20 lg:py-32 flex flex-col items-center justify-center overflow-hidden bg-primary px-margin-mobile lg:px-margin-desktop">
         <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center opacity-30" 
-            style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDLRVkXIOVCbw7juVXURIMpVfBgQ2916Dng4SolV8e3iIZFLgKPSxc59Td6l4aYdCHW96zPHnAtB4cziwnGoTn4Qr5wG0Ye_rbiA4YzTpXXYLEjSavqEIp4xs0YW-_exTp6coIX9CPZwAYyMKqhJIeZmHXUJ3mIljFf30oknVObdQr6RvmAmnt7klA0ITmnJ5uVdQ4M7BDY4BXzzN6RDAaghXUmapMlHUJj8pzDd_ncLV_vb65Ih06urQ')" }}
-          />
+          <div className="absolute inset-0 opacity-30">
+            <HeroSlideshow />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
         </div>
         <div className="relative z-10 max-w-[800px] mx-auto text-center space-y-6">

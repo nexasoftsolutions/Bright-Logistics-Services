@@ -1,11 +1,11 @@
 import { Route, Building2, Factory, Building, Warehouse, Tractor, Truck, Package, MapPin } from 'lucide-react';
 import { hubs } from '@/data/hubs';
-import { SectionContainer, Breadcrumbs, CTABanner } from '@/components/ui';
+import { SectionContainer, Breadcrumbs, CTABanner, HeroSlideshow } from '@/components/ui';
 import DynamicMap from '@/components/ui/DynamicMap';
 
 export const metadata = {
-  title: "Network & Coverage | Karachi to Lahore Transportation",
-  description: "Extensive Cargo Transportation Pakistan network with reliable Karachi to Lahore Transportation and nationwide delivery routes.",
+  title: "Coverage | Karachi to Lahore Transportation",
+  description: "Explore our nationwide network and Cargo Transportation Pakistan coverage.",
 };
 
 const IconMap = {
@@ -18,10 +18,9 @@ export default function Coverage() {
       {/* Hero Section */}
       <section className="relative bg-primary text-on-primary py-12 lg:py-32 overflow-hidden flex items-center justify-center min-h-[409px]">
         <div className="absolute inset-0 z-0">
-          <div 
-            className="bg-cover bg-center w-full h-full opacity-60 mix-blend-luminosity" 
-            style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCn9AC5Do4gCMwWSzzoy50MQ-cysRXbb_PUH24ZqmD7awvsPAW6uJFt4VkGWC1jrL_wO55MhrS03IK7TDBk14n2dzC-0uWdnIfpxe42cXRD1Ntpp5K1Z21y21hhRAff1CCa05xGa72J2QtwfVbXt8FS80Ns1cpSCDV7IEJNUYwXag2PZCtRVsGAIY-SWkwCscoQxVZFU2bBeB0VArXck__xCBZr9ffK1tI79CKk_wIfF0HBXf3yS-VaHA")' }}
-          />
+          <div className="absolute inset-0 opacity-60 mix-blend-luminosity">
+            <HeroSlideshow />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40" />
         </div>
         <div className="relative z-10 max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop w-full text-center space-y-6 mt-20">

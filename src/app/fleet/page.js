@@ -1,7 +1,7 @@
 import { Truck, ArrowRight, Weight, Layers, Package, Bus, Cog, Snowflake, AlignJustify, HardHat, BadgeCheck, Settings } from 'lucide-react';
 import React from 'react';
 import { vehicles, fleetStats } from '@/data/fleet';
-import { SectionContainer, Breadcrumbs, CTABanner } from '@/components/ui';
+import { SectionContainer, Breadcrumbs, CTABanner, HeroSlideshow } from '@/components/ui';
 
 export const metadata = {
   title: "Our Fleet | Container Transportation Karachi",
@@ -17,9 +17,15 @@ export default function Fleet() {
     <div className="flex flex-col w-full bg-background relative overflow-hidden pb-margin-desktop">
       {/* Hero / Header Section */}
       <section 
-        className="w-full relative z-10 pt-16 pb-24 px-margin-mobile lg:px-margin-desktop bg-surface flex flex-col items-center justify-center text-center overflow-hidden" 
-        style={{ backgroundImage: 'linear-gradient(rgba(0, 6, 19, 0.7), rgba(0, 6, 19, 0.7)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5WB0OLCFPSK07NuUTr7F1VUXoAtEWe6cTTmp177Dffd-6u4LLV8xruMcrIcAGP_NgpzW5vwfpYw8r-gMBq79cVVkNRY0qBNHNxDQK1r7oCWESFOl1NX_ZEF77epIPd6KZM2JCi0gTza1Z_9yoapaWS1lCS7Bz_1iSnxbzyeZxVBzXpc9Q0YPrhG_kfjiqQUC2PXoePxZmvSRA4oYgl62rbB691wBJGW8R7RZumZCEeGnbzkeWMV__Vg")', backgroundSize: 'cover', backgroundPosition: 'center center' }}
+        className="w-full relative z-10 pt-16 pb-24 px-margin-mobile lg:px-margin-desktop bg-primary flex flex-col items-center justify-center text-center overflow-hidden" 
       >
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 opacity-40 mix-blend-luminosity">
+            <HeroSlideshow />
+          </div>
+          <div className="absolute inset-0 bg-primary/70" />
+        </div>
+        
         {/* Abstract Decoration */}
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none flex justify-center items-center">
           <svg className="text-primary-container fill-current" height="800" viewBox="0 0 100 100" width="800">

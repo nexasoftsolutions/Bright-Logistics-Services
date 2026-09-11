@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import HeroSlideshow from './HeroSlideshow';
 
 /**
  * PageHero
@@ -27,12 +27,13 @@ export default function PageHero({
   subtitleClassName = 'text-body-lg text-on-primary-container max-w-2xl mx-auto',
   children,
 }) {
+  // We now ignore any passed backgroundImage to ensure all heroes get the dynamic slideshow
   return (
     <section
       className={`relative w-full min-h-[300px] md:min-h-[400px] flex items-center justify-center -mt-20 pt-20 ${sectionClassName}`}
     >
       <div className="absolute inset-0 z-0">
-        <Image src={backgroundImage} alt="" fill className="object-cover" priority />
+        <HeroSlideshow useNextImage={true} />
       </div>
       <div className={`absolute inset-0 z-10 ${overlayClassName}`} />
       <div className="relative z-20 max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop w-full text-center">

@@ -16,7 +16,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import { infrastructureStats } from '@/data/home';
 import { services } from '@/data/services';
 import { vehicles } from '@/data/fleet';
-import { CTABanner, StatsCounter } from '@/components/ui';
+import { CTABanner, StatsCounter, HeroSlideshow } from '@/components/ui';
 
 const iconMap = { PlaneTakeoff, Ship, Truck, Warehouse, Anchor, Cog, Building2, Archive, Recycle, Maximize, Handshake };
 
@@ -28,10 +28,7 @@ export default function Home() {
     <div className="flex flex-col w-full">
       <section className="relative w-full min-h-[85vh] flex items-center justify-center -mt-20 pt-20">
         <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center" 
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=2000')" }}
-          />
+          <HeroSlideshow />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
         </div>
         

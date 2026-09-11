@@ -1,7 +1,7 @@
 import { ArrowRightLeft, Flag, Eye, Truck, UserCheck, Map, CheckCircle, Phone, Mail, Building2 } from 'lucide-react';
 import SectionContainer from '@/components/ui/SectionContainer';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { CTABanner, StatsCounter, Breadcrumbs } from '@/components/ui';
+import { CTABanner, StatsCounter, Breadcrumbs, HeroSlideshow } from '@/components/ui';
 import { companyStats, leadershipData } from '@/data/about';
 
 export const metadata = {
@@ -34,10 +34,9 @@ export default function AboutUs() {
           </div>
           <div className="w-full md:w-1/2 relative h-[400px] md:h-[500px]">
             <div className="absolute inset-4 md:inset-8 bg-surface-container-high rounded-xl rotate-3 transition-transform duration-700 hover:rotate-6 z-0" />
-            <div 
-              className="absolute inset-0 bg-cover bg-center rounded-xl shadow-xl z-10" 
-              style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAD-6Yvg2cAeQuLECOmyNCYH864bO7rBhXshGMT4abwyD7N53nDRF4BVBIxnqxbjBxhRn82GrQf1K8OwvtynDcJBwFP2c9MsYfalw6PBz7CooZXmM5i63CgFVr6vI_MGyGHBoFIqDN2iC7oQkUktHRev2XxIlgx9UVYU2Ilu3r7xYXoiDrWwU2TbtlnFoeB0r0DBT6FohhbWni1y_ruJSmEQ7SII0Be1CKMGfjE_8LVVyFMkeaouarBWw')" }}
-            />
+            <div className="absolute inset-0 rounded-xl shadow-xl z-10 overflow-hidden">
+              <HeroSlideshow />
+            </div>
           </div>
         </SectionContainer>
       </section>

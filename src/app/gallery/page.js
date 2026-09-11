@@ -1,6 +1,6 @@
 import { client } from '@/sanity/lib/client';
 import GalleryClient from './GalleryClient';
-import { Breadcrumbs, CTABanner } from '@/components/ui';
+import { Breadcrumbs, CTABanner, HeroSlideshow } from '@/components/ui';
 
 export const metadata = {
   title: "Gallery | Transportation Company Karachi",
@@ -58,9 +58,17 @@ export default async function GalleryPage() {
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-surface">
-      <div className="pt-24 pb-8 px-margin-mobile lg:px-margin-desktop bg-primary text-on-primary">
-        <h1 className="text-headline-xl text-center mb-6">Our Gallery</h1>
-        <p className="text-body-lg text-center max-w-2xl mx-auto opacity-90">Explore our fleet and logistics operations in action.</p>
+      <div className="relative pt-24 pb-8 px-margin-mobile lg:px-margin-desktop bg-primary text-on-primary min-h-[300px] flex flex-col justify-center">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 opacity-40 mix-blend-luminosity">
+            <HeroSlideshow useNextImage={false} />
+          </div>
+          <div className="absolute inset-0 bg-primary/70 backdrop-blur-sm" />
+        </div>
+        <div className="relative z-10">
+          <h1 className="text-headline-xl text-center mb-6">Our Gallery</h1>
+          <p className="text-body-lg text-center max-w-2xl mx-auto opacity-90">Explore our fleet and logistics operations in action.</p>
+        </div>
       </div>
       <Breadcrumbs />
       <GalleryClient galleryData={galleryData} dynamicFilters={dynamicFilters} />

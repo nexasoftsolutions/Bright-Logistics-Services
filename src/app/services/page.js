@@ -1,7 +1,7 @@
 import { Ship, Anchor, Cog, Building2, Archive, Recycle, Maximize, Handshake, ArrowRight } from 'lucide-react';
 import SectionContainer from '@/components/ui/SectionContainer';
 import { services } from '@/data/services';
-import { Breadcrumbs, CTABanner } from '@/components/ui';
+import { Breadcrumbs, CTABanner, HeroSlideshow } from '@/components/ui';
 import Link from 'next/link';
 
 export const metadata = {
@@ -18,10 +18,9 @@ export default function Services() {
     <div className="flex flex-col w-full relative">
       {/* Hero Section */}
       <section className="relative w-full min-h-[400px] flex items-center justify-center overflow-hidden bg-primary h-[500px]">
-        <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center opacity-90 mix-blend-luminosity" 
-          style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDEdYotzhXhHZFIVUjJL0pBGM2Ve7oa3Q6GCipAnZoW6iU9DzpAEG1Wi7b3xhUjwz-m_WD-uvYgAMRHBjyNQDz_kxWLCTesarFDL2JiPtCw_uM19AOwlQgmsuF9iD5DNSies3T26yi2c9uvF3VF3EByxlJMdbXLsqyvJYbmI2DPTxB6fEHy1FSvRo3XbsYyila4ThEynpMvlyb67d3zkyA2bVXxWxCqZaKqjE2IqqfXxbHJESosWUcW-Q')" }}
-        />
+        <div className="absolute inset-0 z-0 opacity-90 mix-blend-luminosity">
+          <HeroSlideshow />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-background" />
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop text-center mt-10 mb-10">
           <h1 className="text-headline-xl text-on-primary mb-6 animate-fade-in-up">
