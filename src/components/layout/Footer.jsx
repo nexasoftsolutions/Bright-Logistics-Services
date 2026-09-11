@@ -7,11 +7,13 @@ export default function Footer() {
       <div className="max-w-container mx-auto px-margin-mobile lg:px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div className="space-y-6">
           <div className="flex items-center gap-4 mb-6">
-            <img 
-              alt="Bright Logistics Services" 
-              className="h-10 w-auto object-contain" 
-              src="/brightlogo.jpeg" 
-            />
+            <div className="bg-white rounded-md shadow-sm inline-flex">
+              <img 
+                alt="Bright Logistics Services" 
+                className="h-24 w-auto object-contain" 
+                src="/brightlogo.png" 
+              />
+            </div>
           </div>
           <p className="text-body-sm text-on-primary-container">
             Reliable Logistics. Safe Transportation. On-Time Delivery.
