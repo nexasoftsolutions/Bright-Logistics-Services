@@ -34,7 +34,7 @@ export const leadershipData = {
     'Under his leadership, the company has grown from a regional transporter into a trusted partner for top-tier manufacturers and delicate healthcare importers. His philosophy is simple: <em>A promise made is cargo delivered.</em>'
   ],
   phone: '0300-0641481',
-  phoneHref: 'tel:03000641481',
+  phoneHref: 'tel:+923000641481',
   emailHref: 'mailto:info@brightlogistics.pk',
   emailLabel: 'Contact Director'
 };

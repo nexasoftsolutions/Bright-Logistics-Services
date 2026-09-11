@@ -1,6 +1,8 @@
-import { Ship, Anchor, Cog, Building2, Archive, Recycle, Maximize, Handshake } from 'lucide-react';
+import { Ship, Anchor, Cog, Building2, Archive, Recycle, Maximize, Handshake, ArrowRight } from 'lucide-react';
 import SectionContainer from '@/components/ui/SectionContainer';
 import { services } from '@/data/services';
+import { Breadcrumbs, CTABanner } from '@/components/ui';
+import Link from 'next/link';
 
 const iconMap = {
   Ship, Anchor, Cog, Building2, Archive, Recycle, Maximize, Handshake
@@ -17,15 +19,17 @@ export default function Services() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-background" />
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop text-center mt-10 mb-10">
-          <h1 className="font-headline-xl text-headline-xl text-on-primary mb-6 animate-fade-in-up text-3xl">
+          <h1 className="text-headline-xl text-on-primary mb-6 animate-fade-in-up">
             Our Comprehensive<br />
             <span className="text-secondary-fixed">Logistics Solutions</span>
           </h1>
-          <p className="font-body-lg text-body-lg text-surface-container-highest max-w-2xl mx-auto opacity-90">
+          <p className="text-body-lg text-surface-container-highest max-w-2xl mx-auto opacity-90">
             Engineered for precision. Delivering reliable, scalable transportation services that form the backbone of global trade.
           </p>
         </div>
       </section>
+
+      <Breadcrumbs />
 
       {/* Services Grid Section */}
       <section className="w-full bg-background -mt-16 pb-24 relative z-20 pt-20">
@@ -46,11 +50,14 @@ export default function Services() {
                   </div>
                   <div className="p-6 flex flex-col flex-grow z-10 relative bg-surface-container-lowest">
                     <div className="flex items-center gap-3 mb-4">
-                      <h2 className="font-headline-sm text-headline-sm text-on-surface">{service.title}</h2>
+                      <h2 className="text-headline-sm text-on-surface">{service.title}</h2>
                     </div>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant flex-grow mb-6">
+                    <p className="text-body-sm text-on-surface-variant flex-grow mb-6">
                       {service.description}
                     </p>
+                    <Link href={`/quote?service=${service.id}`} className="inline-flex items-center gap-2 text-primary font-medium hover:text-secondary transition-colors mt-auto pt-4 border-t border-outline-variant">
+                      Get Quote <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </article>
               );
@@ -58,6 +65,23 @@ export default function Services() {
           </div>
         </SectionContainer>
       </section>
+
+      {/* Conversion Section */}
+      <section className="w-full py-16 bg-surface-container-lowest text-center">
+        <SectionContainer>
+          <h2 className="text-headline-md text-on-surface mb-6">Need a Custom Solution?</h2>
+          <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary rounded-full hover:bg-primary/90 transition-colors">
+            Contact Our Team
+          </Link>
+        </SectionContainer>
+      </section>
+
+      <CTABanner 
+        headline="Ready to Get Started?" 
+        description="Let us handle the logistics so you can focus on your business." 
+        buttonText="Request a Quote" 
+        buttonHref="/quote" 
+      />
     </div>
   );
 }

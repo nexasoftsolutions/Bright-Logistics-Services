@@ -67,7 +67,7 @@ export const fleetStats = {
     { label: "24/7 Serviced", iconName: "Settings" }
   ],
   metrics: [
-    { label: "Uptime", value: "99%", strokeDasharray: "95, 100" },
+    { label: "Uptime", value: "99%", strokeDasharray: "99, 100" },
     { label: "Vehicles", value: "50+", strokeDasharray: "100, 100" }
   ]
 };

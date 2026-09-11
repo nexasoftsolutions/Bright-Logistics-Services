@@ -1,6 +1,7 @@
 import { ArrowRightLeft, Flag, Eye, Truck, UserCheck, Map, CheckCircle, Phone, Mail, Building2 } from 'lucide-react';
 import SectionContainer from '@/components/ui/SectionContainer';
 import SectionHeading from '@/components/ui/SectionHeading';
+import { CTABanner, StatsCounter, Breadcrumbs } from '@/components/ui';
 import { companyStats, leadershipData } from '@/data/about';
 
 const iconMap = { Truck, UserCheck, Map, CheckCircle };
@@ -14,16 +15,16 @@ export default function AboutUs() {
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary-fixed-dim/20 rounded-full blur-[100px] z-0" />
         <SectionContainer className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-1/2 flex flex-col gap-6 relative">
-            <span className="text-secondary font-label-bold text-label-bold tracking-[0.2em] uppercase">[ About Bright Logistics ]</span>
-            <h1 className="font-headline-xl text-headline-xl text-on-background relative">
+            <span className="text-secondary text-label-bold tracking-[0.2em] uppercase">[ About Bright Logistics ]</span>
+            <h1 className="text-headline-xl text-on-background relative">
               <span className="relative z-10">Moving Your Business Forward</span>
             </h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg mt-4 leading-relaxed">
+            <p className="text-body-lg text-on-surface-variant max-w-lg mt-4 leading-relaxed">
               Bright Logistics Services is a professional logistics and transportation company based in Karachi, Pakistan. We provide reliable transportation solutions for importers, exporters, manufacturers, healthcare organizations, warehouses, distributors and corporate clients. Our services include container transportation, port-to-warehouse movements, plant transfers, local transportation, warehouse movements and customized logistics solutions. Our operations focus on safety, reliability, timely delivery and professional coordination.
             </p>
             <div className="flex items-center gap-4 mt-8">
               <div className="w-12 h-[1px] bg-outline-variant" />
-              <span className="font-label-bold text-label-bold text-on-surface-variant">Safety. Reliability. Precision.</span>
+              <span className="text-label-bold text-on-surface-variant">Safety. Reliability. Precision.</span>
             </div>
           </div>
           <div className="w-full md:w-1/2 relative h-[400px] md:h-[500px]">
@@ -35,6 +36,8 @@ export default function AboutUs() {
           </div>
         </SectionContainer>
       </section>
+
+      <Breadcrumbs />
 
       {/* Mission & Vision (Asymmetric Split) */}
       <section className="w-full py-12 md:py-24 px-margin-mobile md:px-margin-desktop bg-surface-lowest">
@@ -50,9 +53,9 @@ export default function AboutUs() {
                 <span className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
                   <Flag className="w-5 h-5" />
                 </span>
-                <h2 className="font-headline-md text-headline-md text-on-background">Our Mission</h2>
+                <h2 className="text-headline-md text-on-background">Our Mission</h2>
               </div>
-              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed transition-colors duration-300 group-hover:text-on-background">
+              <p className="text-body-lg text-on-surface-variant leading-relaxed transition-colors duration-300 group-hover:text-on-background">
                 To provide dependable, safe and efficient logistics solutions that help businesses move their cargo with confidence.
               </p>
             </div>
@@ -62,9 +65,9 @@ export default function AboutUs() {
                 <span className="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
                   <Eye className="w-5 h-5" />
                 </span>
-                <h2 className="font-headline-md text-headline-md text-on-background">Our Vision</h2>
+                <h2 className="text-headline-md text-on-background">Our Vision</h2>
               </div>
-              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed transition-colors duration-300 group-hover:text-on-background">
+              <p className="text-body-lg text-on-surface-variant leading-relaxed transition-colors duration-300 group-hover:text-on-background">
                 To become a trusted logistics and transportation partner for businesses throughout Pakistan through professional service, operational excellence and long-term client relationships.
               </p>
             </div>
@@ -75,18 +78,7 @@ export default function AboutUs() {
       {/* Stats Section */}
       <section className="w-full py-12 md:py-24 bg-primary text-on-primary">
         <SectionContainer>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-x divide-on-primary/10">
-            {companyStats.map(stat => {
-              const Icon = iconMap[stat.iconName];
-              return (
-                <div key={stat.id} className="flex flex-col items-center justify-center p-4">
-                  <Icon className="w-10 h-10 text-secondary-fixed mb-4" />
-                  <h3 className="font-headline-xl text-headline-xl tabular-nums">{stat.value}</h3>
-                  <p className="font-label-bold text-label-bold text-on-primary-container mt-2 uppercase tracking-wider">{stat.label}</p>
-                </div>
-              );
-            })}
-          </div>
+          <StatsCounter stats={companyStats} variant="dark" />
         </SectionContainer>
       </section>
 
@@ -115,21 +107,24 @@ export default function AboutUs() {
             </div>
             
             <div className="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center bg-surface-lowest">
-              <h3 className="font-headline-md text-headline-md text-on-surface mb-1">{leadershipData.name}</h3>
-              <p className="font-label-bold text-label-bold text-secondary mb-6 tracking-wide uppercase">{leadershipData.role}</p>
+              <h3 className="text-headline-md text-on-surface mb-1">{leadershipData.name}</h3>
+              <p className="text-label-bold text-secondary mb-6 tracking-wide uppercase">{leadershipData.role}</p>
               
-              <div className="space-y-4 font-body-md text-body-md text-on-surface-variant">
-                {leadershipData.paragraphs.map((p, i) => (
-                  <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
-                ))}
+              <div className="space-y-4 text-body-md text-on-surface-variant">
+                <p>
+                  With decades of hands-on experience navigating the complex logistical networks of Pakistan, Ibrar Khan established Bright Logistics to address a critical gap: the need for uncompromising reliability in freight and supply chain coordination.
+                </p>
+                <p>
+                  Under his leadership, the company has grown from a regional transporter into a trusted partner for top-tier manufacturers and delicate healthcare importers. His philosophy is simple: <em>A promise made is cargo delivered.</em>
+                </p>
               </div>
               
               <div className="mt-8 pt-6 border-t border-outline-variant flex flex-wrap items-center gap-6">
-                <a className="flex items-center gap-2 text-on-surface-variant hover:text-secondary transition-colors font-label-bold text-label-bold" href={leadershipData.phoneHref}>
+                <a className="flex items-center gap-2 text-on-surface-variant hover:text-secondary transition-colors text-label-bold" href={leadershipData.phoneHref}>
                   <Phone className="w-5 h-5" />
                   {leadershipData.phone}
                 </a>
-                <a className="flex items-center gap-2 text-on-surface-variant hover:text-secondary transition-colors font-label-bold text-label-bold" href={leadershipData.emailHref}>
+                <a className="flex items-center gap-2 text-on-surface-variant hover:text-secondary transition-colors text-label-bold" href={leadershipData.emailHref}>
                   <Mail className="w-5 h-5" />
                   {leadershipData.emailLabel}
                 </a>
@@ -143,10 +138,17 @@ export default function AboutUs() {
       <section className="w-full py-12 bg-surface-container text-center px-margin-mobile">
         <div className="max-w-[800px] mx-auto flex flex-col items-center gap-4">
           <Building2 className="w-10 h-10 text-secondary" />
-          <h3 className="font-headline-sm text-headline-sm text-on-surface">Proudly Operating from Karachi, Pakistan</h3>
-          <p className="font-body-sm text-body-sm text-on-surface-variant">Strategically located near major ports to ensure rapid deployment and receipt of critical shipments.</p>
+          <h3 className="text-headline-sm text-on-surface">Proudly Operating from Karachi, Pakistan</h3>
+          <p className="text-body-sm text-on-surface-variant">Strategically located near major ports to ensure rapid deployment and receipt of critical shipments.</p>
         </div>
       </section>
+
+      <CTABanner 
+        headline="Ready to Partner With Us?" 
+        description="Experience logistics built on trust and operational excellence." 
+        buttonText="Get in Touch" 
+        buttonHref="/contact" 
+      />
     </div>
   );
 }

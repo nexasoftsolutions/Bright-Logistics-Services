@@ -2,28 +2,25 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Phone, Menu } from 'lucide-react';
-import { useState } from 'react';
-
-const NAV_LINKS = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Us' },
-  { href: '/services', label: 'Services' },
-  { href: '/coverage', label: 'Coverage' },
-  { href: '/fleet', label: 'Fleet' },
-  { href: '/industries', label: 'Industries' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/quote', label: 'Get a Quote' },
-  { href: '/contact', label: 'Contact Us' },
-];
+import { Phone, Menu, X, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
   
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-primary/95 backdrop-blur-md shadow-lg h-20">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 h-20 ${isScrolled ? 'bg-primary shadow-lg' : 'bg-primary/80 backdrop-blur-md'}`}>
       <div className="max-w-container mx-auto h-full px-margin-mobile lg:px-margin-desktop flex items-center justify-between gap-gutter">
         
         <Link href="/" className="flex items-center gap-4">
@@ -32,66 +29,71 @@ export default function Header() {
             className="h-10 w-auto object-contain" 
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw872OjAIGUuJWkSv9jC-q3DQT58O1jxUPeZz0mJHoB_Aq3qYAEx5xiOg43vzgSwS7dkcpwE4rtOE1PIJfa7Z0IUGYxqXqL0Q1IbtiIOWL8laakBGmXKCyRpXeONBEePZib6XRGkulvYA5tsfkSMjacsmW6tpmxB5zyqs1u8HdMhmdngkCH6R_ZEqatnjzcKgjVceFKzkdv-XQ36ktpe5GHZzk7y6Fjr1aetq6gg31t7d4tAk-BdfXvQ" 
           />
-          <span className="text-headline-sm text-on-primary hidden lg:inline font-headline-sm">
+          <span className="text-headline-sm text-on-primary hidden lg:inline">
             Bright Logistics
           </span>
         </Link>
 
-        <nav className="hidden xl:flex items-center h-full gap-6">
-          {NAV_LINKS.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`h-full flex items-center transition-colors px-1 ${
-                  isActive
-                    ? 'border-b-4 border-secondary-container text-on-primary font-label-bold text-label-bold'
-                    : 'text-on-primary-container hover:text-on-primary text-body-sm'
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+        <nav className="hidden lg:flex items-center h-full gap-6">
+          <Link href="/" className={`h-full flex items-center transition-colors px-1 ${pathname === '/' ? 'border-b-4 border-secondary-container text-on-primary text-label-bold' : 'text-on-primary-container hover:text-on-primary text-body-sm'}`}>Home</Link>
+          <Link href="/about" className={`h-full flex items-center transition-colors px-1 ${pathname === '/about' ? 'border-b-4 border-secondary-container text-on-primary text-label-bold' : 'text-on-primary-container hover:text-on-primary text-body-sm'}`}>About Us</Link>
+          
+          <div className="relative group h-full flex items-center">
+            <button className="flex items-center gap-1 text-on-primary-container hover:text-on-primary text-body-sm">
+              Services <ChevronDown className="w-4 h-4" />
+            </button>
+            <div className="absolute top-full left-0 hidden group-hover:flex flex-col bg-primary shadow-lg rounded-b-lg border-t border-secondary-container overflow-hidden min-w-[200px]">
+              <Link href="/services" className="px-4 py-3 text-on-primary hover:bg-surface-container-low hover:text-secondary-container transition-colors">Services</Link>
+              <Link href="/industries" className="px-4 py-3 text-on-primary hover:bg-surface-container-low hover:text-secondary-container transition-colors">Industries</Link>
+            </div>
+          </div>
+          
+          <div className="relative group h-full flex items-center">
+            <button className="flex items-center gap-1 text-on-primary-container hover:text-on-primary text-body-sm">
+              Operations <ChevronDown className="w-4 h-4" />
+            </button>
+            <div className="absolute top-full left-0 hidden group-hover:flex flex-col bg-primary shadow-lg rounded-b-lg border-t border-secondary-container overflow-hidden min-w-[200px]">
+              <Link href="/fleet" className="px-4 py-3 text-on-primary hover:bg-surface-container-low hover:text-secondary-container transition-colors">Fleet</Link>
+              <Link href="/coverage" className="px-4 py-3 text-on-primary hover:bg-surface-container-low hover:text-secondary-container transition-colors">Coverage</Link>
+              <Link href="/gallery" className="px-4 py-3 text-on-primary hover:bg-surface-container-low hover:text-secondary-container transition-colors">Gallery</Link>
+            </div>
+          </div>
+
+          <Link href="/blog" className={`h-full flex items-center transition-colors px-1 ${pathname === '/blog' ? 'border-b-4 border-secondary-container text-on-primary text-label-bold' : 'text-on-primary-container hover:text-on-primary text-body-sm'}`}>Blog</Link>
+          <Link href="/quote" className={`h-full flex items-center transition-colors px-1 ${pathname === '/quote' ? 'border-b-4 border-secondary-container text-on-primary text-label-bold' : 'text-on-primary-container hover:text-on-primary text-body-sm'}`}>Get a Quote</Link>
+          <Link href="/contact" className={`h-full flex items-center transition-colors px-1 ${pathname === '/contact' ? 'border-b-4 border-secondary-container text-on-primary text-label-bold' : 'text-on-primary-container hover:text-on-primary text-body-sm'}`}>Contact Us</Link>
         </nav>
 
         <div className="flex items-center gap-4">
           <a 
-            href="tel:03000641482" 
-            className="bg-secondary-container text-on-secondary-fixed-variant px-6 py-2.5 rounded-full font-label-bold text-label-bold flex items-center gap-2 hover:bg-secondary transition-all"
+            href="tel:+923000641482" 
+            className="bg-secondary-container text-on-secondary-fixed-variant px-6 py-2.5 rounded-full text-label-bold flex items-center gap-2 hover:bg-secondary transition-all"
           >
             <Phone className="w-5 h-5" />
             <span className="hidden sm:inline">0300-0641482</span>
           </a>
           <button 
-            className="xl:hidden text-on-primary"
+            className="lg:hidden text-on-primary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <Menu className="w-8 h-8" />
+            {mobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
           </button>
         </div>
       </div>
       
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="xl:hidden absolute top-20 left-0 w-full bg-primary shadow-lg border-t border-on-primary-fixed-variant/20 flex flex-col p-4">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className={`p-3 transition-colors ${
-                pathname === link.href
-                  ? 'text-secondary-container font-label-bold text-label-bold'
-                  : 'text-on-primary hover:text-secondary-container text-body-md font-body-md'
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      <div className={`lg:hidden absolute top-20 left-0 w-full bg-primary shadow-lg border-t border-on-primary-fixed-variant/20 flex flex-col p-4 transition-transform duration-300 origin-top ${mobileMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}`}>
+        <Link href="/" onClick={() => setMobileMenuOpen(false)} className="p-3 text-on-primary hover:text-secondary-container text-body-md border-b border-surface/10">Home</Link>
+        <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="p-3 text-on-primary hover:text-secondary-container text-body-md border-b border-surface/10">About Us</Link>
+        <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="p-3 text-on-primary hover:text-secondary-container text-body-md border-b border-surface/10">Services</Link>
+        <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="p-3 text-on-primary hover:text-secondary-container text-body-md border-b border-surface/10">Industries</Link>
+        <Link href="/fleet" onClick={() => setMobileMenuOpen(false)} className="p-3 text-on-primary hover:text-secondary-container text-body-md border-b border-surface/10">Fleet</Link>
+        <Link href="/coverage" onClick={() => setMobileMenuOpen(false)} className="p-3 text-on-primary hover:text-secondary-container text-body-md border-b border-surface/10">Coverage</Link>
+        <Link href="/gallery" onClick={() => setMobileMenuOpen(false)} className="p-3 text-on-primary hover:text-secondary-container text-body-md border-b border-surface/10">Gallery</Link>
+        <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="p-3 text-on-primary hover:text-secondary-container text-body-md border-b border-surface/10">Blog</Link>
+        <Link href="/quote" onClick={() => setMobileMenuOpen(false)} className="p-3 text-on-primary hover:text-secondary-container text-body-md border-b border-surface/10">Get a Quote</Link>
+        <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="p-3 text-on-primary hover:text-secondary-container text-body-md">Contact Us</Link>
+      </div>
     </header>
   );
 }

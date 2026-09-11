@@ -9,3 +9,6 @@ export { default as PageHero } from './PageHero';
 export { default as TrustBadge } from './TrustBadge';
 export { default as ContactItem } from './ContactItem';
 export { default as FormField } from './FormField';
+export { default as CTABanner } from './CTABanner';
+export { default as StatsCounter } from './StatsCounter';
+export { default as Breadcrumbs } from './Breadcrumbs';

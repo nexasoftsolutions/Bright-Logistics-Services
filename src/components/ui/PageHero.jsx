@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 /**
  * PageHero
  * Reusable hero/banner section for secondary pages.
@@ -21,17 +23,19 @@ export default function PageHero({
   subtitle,
   overlayClassName = 'bg-primary/70 backdrop-blur-sm',
   sectionClassName = '',
-  titleClassName = 'font-headline-xl text-on-primary mb-4',
-  subtitleClassName = 'font-body-lg text-on-primary-container max-w-2xl mx-auto',
+  titleClassName = 'text-headline-xl text-on-primary mb-4',
+  subtitleClassName = 'text-body-lg text-on-primary-container max-w-2xl mx-auto',
   children,
 }) {
   return (
     <section
-      className={`relative w-full min-h-[300px] md:min-h-[400px] flex items-center justify-center -mt-20 pt-20 bg-cover bg-center ${sectionClassName}`}
-      style={{ backgroundImage: `url('${backgroundImage}')` }}
+      className={`relative w-full min-h-[300px] md:min-h-[400px] flex items-center justify-center -mt-20 pt-20 ${sectionClassName}`}
     >
-      <div className={`absolute inset-0 ${overlayClassName}`} />
-      <div className="relative z-10 max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop w-full text-center">
+      <div className="absolute inset-0 z-0">
+        <Image src={backgroundImage} alt="" fill className="object-cover" priority />
+      </div>
+      <div className={`absolute inset-0 z-10 ${overlayClassName}`} />
+      <div className="relative z-20 max-w-[1440px] mx-auto px-margin-mobile lg:px-margin-desktop w-full text-center">
         <h1 className={titleClassName}>{title}</h1>
         {subtitle && <p className={subtitleClassName}>{subtitle}</p>}
         {children}

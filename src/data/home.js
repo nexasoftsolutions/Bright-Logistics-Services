@@ -27,15 +27,27 @@ export const coreServices = [
 
 export const infrastructureStats = [
   {
-    id: 'hubs',
-    value: '120+',
-    label: 'Global Hubs',
+    id: 'fleet',
+    value: '250+',
+    label: 'Active Fleet',
     valueColor: 'text-primary'
   },
   {
-    id: 'shipped',
-    value: '1M+',
-    label: 'Tons Shipped',
+    id: 'drivers',
+    value: '150+',
+    label: 'Verified Drivers',
+    valueColor: 'text-secondary-container'
+  },
+  {
+    id: 'coverage',
+    value: '100%',
+    label: 'National Coverage',
+    valueColor: 'text-primary'
+  },
+  {
+    id: 'ontime',
+    value: '99.8%',
+    label: 'On-Time Delivery',
     valueColor: 'text-secondary-container'
   }
 ];

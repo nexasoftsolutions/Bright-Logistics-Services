@@ -34,10 +34,10 @@ export default function PakistanMap() {
       html: `
         <div class="flex flex-col items-center justify-center -translate-x-1/2 -translate-y-1/2" style="transform: translate(-50%, -50%);">
           <div class="relative flex items-center justify-center">
-            ${isHQ ? '<div class="absolute w-5 h-5 bg-[#fd8b00] rounded-full animate-pulse opacity-60"></div>' : ''}
-            <div class="${isHQ ? 'w-3 h-3 bg-[#fd8b00]' : 'w-2 h-2 bg-white'} rounded-full relative z-10 shadow-[0_0_8px_rgba(253,139,0,0.8)]"></div>
+            ${isHQ ? '<div class="absolute w-5 h-5 rounded-full animate-pulse opacity-60" style="background-color: var(--color-secondary-container);"></div>' : ''}
+            <div class="${isHQ ? 'w-3 h-3' : 'w-2 h-2'} rounded-full relative z-10" style="background-color: ${isHQ ? 'var(--color-secondary-container)' : 'var(--color-surface)'}; box-shadow: 0 0 8px ${isHQ ? 'var(--color-secondary-container)' : 'var(--color-surface)'};"></div>
           </div>
-          <div class="mt-1 ${isHQ ? 'text-white font-bold text-sm' : 'text-[#d5e3fd] text-[10px] font-medium'} whitespace-nowrap drop-shadow-md" style="font-family: system-ui, sans-serif;">
+          <div class="mt-1 ${isHQ ? 'font-bold text-sm' : 'text-[10px] font-medium'} whitespace-nowrap drop-shadow-md" style="font-family: system-ui, sans-serif; color: ${isHQ ? 'var(--color-on-primary)' : 'var(--color-surface-variant)'};">
             ${name}${isHQ ? ' (HQ)' : ''}
           </div>
         </div>
@@ -53,8 +53,8 @@ export default function PakistanMap() {
         center={[30.5, 70]} 
         zoom={5} 
         scrollWheelZoom={false}
-        className="w-full h-full bg-primary"
-        style={{ background: '#000613' }}
+        className="w-full h-full"
+        style={{ backgroundColor: 'var(--color-primary)' }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
