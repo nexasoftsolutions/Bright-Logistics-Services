@@ -15,8 +15,18 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://brightlogistics.pk'),
   title: "Bright Logistics Services",
   description: "Reliable Logistics. Safe Transportation. On-Time Delivery.",
+  icons: {
+    icon: '/brightlogo.jpeg',
+    apple: '/brightlogo.jpeg',
+  },
+  openGraph: {
+    title: 'Bright Logistics Services',
+    description: 'Pakistan\'s most reliable fleet — 250+ vehicles, 99.8% on-time delivery, nationwide coverage.',
+    images: [{ url: '/brightlogo.jpeg', width: 800, height: 800, alt: 'Bright Logistics Services' }],
+  },
 };
 
 export default function RootLayout({ children }) {

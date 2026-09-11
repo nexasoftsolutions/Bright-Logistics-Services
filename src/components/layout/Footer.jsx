@@ -8,11 +8,10 @@ export default function Footer() {
         <div className="space-y-6">
           <div className="flex items-center gap-4 mb-6">
             <img 
-              alt="Bright Logistics Logo" 
-              className="h-8 w-auto object-contain" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw872OjAIGUuJWkSv9jC-q3DQT58O1jxUPeZz0mJHoB_Aq3qYAEx5xiOg43vzgSwS7dkcpwE4rtOE1PIJfa7Z0IUGYxqXqL0Q1IbtiIOWL8laakBGmXKCyRpXeONBEePZib6XRGkulvYA5tsfkSMjacsmW6tpmxB5zyqs1u8HdMhmdngkCH6R_ZEqatnjzcKgjVceFKzkdv-XQ36ktpe5GHZzk7y6Fjr1aetq6gg31t7d4tAk-BdfXvQ" 
+              alt="Bright Logistics Services" 
+              className="h-10 w-auto object-contain" 
+              src="/brightlogo.jpeg" 
             />
-            <span className="text-headline-sm text-on-primary">Bright Logistics Services</span>
           </div>
           <p className="text-body-sm text-on-primary-container">
             Reliable Logistics. Safe Transportation. On-Time Delivery.

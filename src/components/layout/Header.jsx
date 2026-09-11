@@ -23,15 +23,12 @@ export default function Header() {
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 h-20 ${isScrolled ? 'bg-primary shadow-lg' : 'bg-primary/80 backdrop-blur-md'}`}>
       <div className="max-w-container mx-auto h-full px-margin-mobile lg:px-margin-desktop flex items-center justify-between gap-gutter">
         
-        <Link href="/" className="flex items-center gap-4">
+        <Link href="/" className="flex items-center gap-3">
           <img 
-            alt="Bright Logistics Logo" 
-            className="h-10 w-auto object-contain" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw872OjAIGUuJWkSv9jC-q3DQT58O1jxUPeZz0mJHoB_Aq3qYAEx5xiOg43vzgSwS7dkcpwE4rtOE1PIJfa7Z0IUGYxqXqL0Q1IbtiIOWL8laakBGmXKCyRpXeONBEePZib6XRGkulvYA5tsfkSMjacsmW6tpmxB5zyqs1u8HdMhmdngkCH6R_ZEqatnjzcKgjVceFKzkdv-XQ36ktpe5GHZzk7y6Fjr1aetq6gg31t7d4tAk-BdfXvQ" 
+            alt="Bright Logistics Services" 
+            className="h-12 w-auto object-contain" 
+            src="/brightlogo.jpeg" 
           />
-          <span className="text-headline-sm text-on-primary hidden lg:inline">
-            Bright Logistics
-          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center h-full gap-6">
