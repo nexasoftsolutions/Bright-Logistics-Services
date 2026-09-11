@@ -2,6 +2,11 @@ import { client } from '@/sanity/lib/client';
 import GalleryClient from './GalleryClient';
 import { Breadcrumbs, CTABanner } from '@/components/ui';
 
+export const metadata = {
+  title: "Gallery | Transportation Company Karachi",
+  description: "View our gallery showcasing operations of a leading Transportation Company Karachi, highlighting Cargo Transportation Pakistan.",
+};
+
 // Disable caching for this route so gallery updates appear immediately
 export const revalidate = 0; 
 

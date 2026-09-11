@@ -3,6 +3,11 @@ import SectionContainer from '@/components/ui/SectionContainer';
 import { industries } from '@/data/industries';
 import { Breadcrumbs, CTABanner } from '@/components/ui';
 
+export const metadata = {
+  title: "Industries We Serve | Heavy Cargo Transportation",
+  description: "We serve various sectors providing Warehouse Transportation, Heavy Cargo Transportation, and industrial logistics solutions across Pakistan.",
+};
+
 const iconMap = {
   HeartPulse, Factory, Ship, Warehouse, Truck, HardHat, Building2
 };

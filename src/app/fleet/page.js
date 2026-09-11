@@ -3,6 +3,11 @@ import React from 'react';
 import { vehicles, fleetStats } from '@/data/fleet';
 import { SectionContainer, Breadcrumbs, CTABanner } from '@/components/ui';
 
+export const metadata = {
+  title: "Our Fleet | Container Transportation Karachi",
+  description: "We offer reliable 20ft Container Transportation and 40ft Container Transportation services. Your trusted partner for Container Transportation Karachi.",
+};
+
 const IconMap = {
   Truck, ArrowRight, Weight, Layers, Package, Bus, Cog, Snowflake, AlignJustify, HardHat, BadgeCheck, Settings
 };

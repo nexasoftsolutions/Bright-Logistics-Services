@@ -40,7 +40,12 @@ export default function Footer() {
           <h4 className="text-headline-sm text-secondary-fixed">Quick Links</h4>
           <nav className="flex flex-col gap-2">
             <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/">Home</Link>
-            <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/services">Our Services</Link>
+            <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/about">About Us</Link>
+            <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/services">Services</Link>
+            <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/coverage">Coverage</Link>
+            <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/fleet">Fleet</Link>
+            <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/industries">Industries</Link>
+            <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/gallery">Gallery</Link>
             <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/quote">Get a Quote</Link>
             <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/blog">Blog</Link>
             <Link className="text-body-sm text-on-primary-container hover:text-on-primary transition-colors" href="/contact">Contact Us</Link>

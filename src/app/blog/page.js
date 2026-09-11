@@ -3,6 +3,11 @@ import SectionContainer from '@/components/ui/SectionContainer';
 import { blogPosts } from '@/data/blog';
 import { Breadcrumbs, CTABanner } from '@/components/ui';
 
+export const metadata = {
+  title: "Blog & Insights | Logistics Services Pakistan",
+  description: "Read the latest news and insights on Logistics Services Pakistan, transportation trends, and supply chain management.",
+};
+
 export default function Blog() {
   return (
     <div className="flex flex-col w-full bg-surface">

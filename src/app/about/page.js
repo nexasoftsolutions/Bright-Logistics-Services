@@ -4,6 +4,11 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import { CTABanner, StatsCounter, Breadcrumbs } from '@/components/ui';
 import { companyStats, leadershipData } from '@/data/about';
 
+export const metadata = {
+  title: "About Us | Logistics Company in Karachi | Bright Logistics",
+  description: "Learn more about Bright Logistics, a premier Logistics Company in Karachi providing top-notch Logistics Services in Pakistan.",
+};
+
 const iconMap = { Truck, UserCheck, Map, CheckCircle };
 
 export default function AboutUs() {

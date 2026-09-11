@@ -54,5 +54,19 @@ export const hubs = [
     description: "Mountain Route Entry",
     iconName: "MapPin",
     iconColorClass: "text-primary-fixed-dim"
+  },
+  {
+    id: "nowshera",
+    name: "Nowshera",
+    description: "KPK Transit Node",
+    iconName: "Route",
+    iconColorClass: "text-primary-fixed-dim"
+  },
+  {
+    id: "talagang",
+    name: "Talagang",
+    description: "Regional Transport Hub",
+    iconName: "MapPin",
+    iconColorClass: "text-primary-fixed-dim"
   }
 ];

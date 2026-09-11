@@ -4,6 +4,11 @@ import { services } from '@/data/services';
 import { Breadcrumbs, CTABanner } from '@/components/ui';
 import Link from 'next/link';
 
+export const metadata = {
+  title: "Our Services | Logistics Services & Plant Transfer",
+  description: "Explore our comprehensive Logistics Services in Pakistan, including specialized Plant Transfer Services and reliable supply chain solutions.",
+};
+
 const iconMap = {
   Ship, Anchor, Cog, Building2, Archive, Recycle, Maximize, Handshake
 };

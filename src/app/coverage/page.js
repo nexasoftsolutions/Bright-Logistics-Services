@@ -3,6 +3,11 @@ import { hubs } from '@/data/hubs';
 import { SectionContainer, Breadcrumbs, CTABanner } from '@/components/ui';
 import DynamicMap from '@/components/ui/DynamicMap';
 
+export const metadata = {
+  title: "Network & Coverage | Karachi to Lahore Transportation",
+  description: "Extensive Cargo Transportation Pakistan network with reliable Karachi to Lahore Transportation and nationwide delivery routes.",
+};
+
 const IconMap = {
   Route, Building2, Factory, Building, Warehouse, Tractor, Truck, Package, MapPin
 };
