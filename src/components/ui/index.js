@@ -13,3 +13,4 @@ export { default as CTABanner } from './CTABanner';
 export { default as StatsCounter } from './StatsCounter';
 export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as HeroSlideshow } from './HeroSlideshow';
+export { default as ScrollReveal } from './ScrollReveal';

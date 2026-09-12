@@ -11,6 +11,9 @@
  *     align="center"
  *   />
  */
+import React from 'react';
+import ScrollReveal from './ScrollReveal';
+
 export default function SectionHeading({
   eyebrow,
   title,
@@ -24,27 +27,30 @@ export default function SectionHeading({
   children,
 }) {
   const alignCenter = align === 'center';
+  const alignClass = alignCenter ? 'items-center text-center' : 'items-start text-left';
 
   return (
-    <div className={`${alignCenter ? 'text-center' : ''} ${className}`}>
+    <ScrollReveal delay={100} className={`flex flex-col ${alignClass} ${className} w-full`}>
       {eyebrow && (
-        <span
-          className={`font-label-bold text-label-bold ${eyebrowClassName} uppercase tracking-widest block mb-4`}
-        >
+        <span className={`font-label-bold text-label-bold uppercase tracking-widest mb-3 block ${eyebrowClassName}`}>
           {eyebrow}
         </span>
       )}
-      <TitleTag className={`font-headline-lg text-headline-lg ${titleClassName}`}>
-        {title}
-      </TitleTag>
+      {title && (
+        <TitleTag className={`font-headline-lg text-headline-lg ${titleClassName}`}>
+          {title}
+        </TitleTag>
+      )}
       {subtitle && (
-        <p
-          className={`font-body-md text-body-md ${subtitleClassName} max-w-2xl mt-4 ${alignCenter ? 'mx-auto' : ''}`}
-        >
+        <p className={`font-body-md text-body-md ${subtitleClassName} mt-4 max-w-3xl`}>
           {subtitle}
         </p>
       )}
-      {children}
-    </div>
+      {children && (
+        <div className="mt-6 w-full">
+          {children}
+        </div>
+      )}
+    </ScrollReveal>
   );
 }

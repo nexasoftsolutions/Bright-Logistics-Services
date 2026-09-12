@@ -16,7 +16,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import { infrastructureStats } from '@/data/home';
 import { services } from '@/data/services';
 import { vehicles } from '@/data/fleet';
-import { CTABanner, StatsCounter, HeroSlideshow } from '@/components/ui';
+import { CTABanner, StatsCounter, HeroSlideshow, ScrollReveal } from '@/components/ui';
 
 const iconMap = { PlaneTakeoff, Ship, Truck, Warehouse, Anchor, Cog, Building2, Archive, Recycle, Maximize, Handshake };
 
@@ -33,7 +33,7 @@ export default function Home() {
         </div>
         
         <SectionContainer className="relative z-10 w-full flex flex-col justify-center">
-          <div className="max-w-2xl space-y-6">
+          <ScrollReveal className="max-w-2xl space-y-6">
             <div className="inline-block bg-secondary-container/20 px-4 py-1.5 rounded-full">
               <span className="text-label-bold text-secondary-fixed uppercase tracking-widest">Trusted by Pakistan's Leading Businesses</span>
             </div>
@@ -54,13 +54,13 @@ export default function Home() {
                 WhatsApp Us
               </a>
             </div>
-          </div>
+          </ScrollReveal>
         </SectionContainer>
       </section>
 
       {/* 24/7 Dispatch Overlap */}
       <SectionContainer as="section" id="dispatch" className="relative z-20 w-full -mt-24 mb-16">
-        <div className="bg-surface text-on-surface rounded-xl shadow-[0_8px_30px_rgba(0,31,63,0.12)] p-6 lg:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 border-l-4 border-secondary-container">
+        <ScrollReveal delay={200} className="bg-surface text-on-surface rounded-xl shadow-[0_8px_30px_rgba(0,31,63,0.12)] p-6 lg:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 border-l-4 border-secondary-container">
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-2">
               <span className="flex h-3 w-3 relative">
@@ -84,7 +84,7 @@ export default function Home() {
               WhatsApp Us
             </a>
           </div>
-        </div>
+        </ScrollReveal>
       </SectionContainer>
 
       {/* About Section */}
@@ -122,23 +122,25 @@ export default function Home() {
             titleClassName="text-on-background mb-10 text-center"
             className="flex flex-col items-center"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: "Reliable Transportation", icon: ShieldCheck },
-              { title: "Professional Coordination", icon: UserCheck },
-              { title: "Safe Cargo Handling", icon: PackageCheck },
-              { title: "Timely Service", icon: Clock },
-              { title: "Flexible Solutions", icon: Layers },
-              { title: "Business-Focused Support", icon: Briefcase }
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-surface p-6 rounded-xl shadow-sm flex items-start gap-4">
-                <feature.icon className="w-8 h-8 text-primary shrink-0" />
-                <div>
-                  <h3 className="text-headline-sm text-on-surface mb-2">{feature.title}</h3>
+          <ScrollReveal delay={150}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                { title: "Reliable Transportation", icon: ShieldCheck },
+                { title: "Professional Coordination", icon: UserCheck },
+                { title: "Safe Cargo Handling", icon: PackageCheck },
+                { title: "Timely Service", icon: Clock },
+                { title: "Flexible Solutions", icon: Layers },
+                { title: "Business-Focused Support", icon: Briefcase }
+              ].map((feature, idx) => (
+                <div key={idx} className="bg-surface p-6 rounded-xl shadow-sm flex items-start gap-4">
+                  <feature.icon className="w-8 h-8 text-primary shrink-0" />
+                  <div>
+                    <h3 className="text-headline-sm text-on-surface mb-2">{feature.title}</h3>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </SectionContainer>
       </section>
 
@@ -183,22 +185,24 @@ export default function Home() {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-            {firstFourServices.map((service) => {
-              const Icon = iconMap[service.iconName];
-              return (
-                <div key={service.id} className="group bg-surface text-on-surface p-8 rounded-xl shadow-sm hover:shadow-[0_8px_30px_rgba(0,31,63,0.08)] transition-all duration-300 relative overflow-hidden flex flex-col h-full">
-                  <div className="absolute -right-8 -top-8 w-32 h-32 bg-surface-container-low rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
-                  {Icon && <Icon className="w-10 h-10 text-primary mb-6 relative z-10" />}
-                  <h3 className="text-headline-sm text-on-surface mb-3 relative z-10">{service.title}</h3>
-                  <p className="text-body-md text-on-surface-variant flex-grow relative z-10">{service.description}</p>
-                  <Link href={`/quote?service=${service.id}`} className="mt-6 flex items-center gap-2 text-secondary-container text-label-bold uppercase tracking-wider relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Get Quote <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
+          <ScrollReveal delay={150}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+              {firstFourServices.map((service) => {
+                const Icon = iconMap[service.iconName];
+                return (
+                  <div key={service.id} className="group bg-surface text-on-surface p-8 rounded-xl shadow-sm hover:shadow-[0_8px_30px_rgba(0,31,63,0.08)] transition-all duration-300 relative overflow-hidden flex flex-col h-full">
+                    <div className="absolute -right-8 -top-8 w-32 h-32 bg-surface-container-low rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
+                    {Icon && <Icon className="w-10 h-10 text-primary mb-6 relative z-10" />}
+                    <h3 className="text-headline-sm text-on-surface mb-3 relative z-10">{service.title}</h3>
+                    <p className="text-body-md text-on-surface-variant flex-grow relative z-10">{service.description}</p>
+                    <Link href={`/quote?service=${service.id}`} className="mt-6 flex items-center gap-2 text-secondary-container text-label-bold uppercase tracking-wider relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                      Get Quote <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          </ScrollReveal>
         </SectionContainer>
       </section>
 
