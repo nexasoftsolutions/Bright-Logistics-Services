@@ -58,8 +58,8 @@ export default function RootLayout({ children }) {
   //    </body>
   //  </html>
     <>
-    <h1>Your Website has been down until you cleared your payment to developer</h1>
-    <h1>After 1 month your domain has been down any until further notice!</h1>
+    <h1 className="text-3xl p-4 text-bold">Your Website has been down until you cleared your payment to developer</h1>
+    <h1 className="text-3xl p-4 text-bold">After 1 month your domain has been down any until further notice!</h1>
     </>
   );
 }
